@@ -1,7 +1,4 @@
-# PPMessge - 即插即用的在线客服系统
+# Summary
 
-* PPMessage简介
-* PPMessage在线服务
-* PPMessage独立部署
-* 
+* [PPMessage简介](ppmessage-introduction.md)
 
