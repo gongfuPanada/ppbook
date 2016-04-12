@@ -21,7 +21,7 @@
 * [开发](part3/README.md)
    * [PPMessage](part3/ppmessage/README.md)
        * [Mac OS X](part3/ppmessage/mac.md)
-       * [Linux](part3/ppmessage/deploy-ppmessage-on-linux.md)
+       * [Linux](part3/ppmessage/linux.md)
        * [docker](part3/ppmessage/deploy-ppmessage-with-docker.md)
    * [PPKefu](part3/ppkefu/README.md)
        * [配置开发环境](part3/ppkefu/set-up-environment.md)
