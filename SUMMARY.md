@@ -16,7 +16,7 @@
        * [联系人](part2/ppkefu/contacts.md)
        * [设置](part2/ppkefu/settings.md)
    * [PPCom](part2/ppcom/README.md)
-       * [部署](part2/ppcom/deploy-ppcom.md)
+       * [部署](part2/ppcom/deploy.md)
        * [对话](part2/ppcom/chat.md)
 * [开发](part3/README.md)
    * [PPMessage](part3/deploy-ppmessage/README.md)
