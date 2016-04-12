@@ -15,7 +15,7 @@
        * [对话](part2/ppkefu/conversations.md)
        * [联系人](part2/ppkefu/contacts.md)
        * [设置](part2/ppkefu/settings.md)
-       * 第三方客户端
+       * [第三方客户端](part2/ppkefu/third-party-client.md)
    * [PPCom](part2/ppcom/README.md)
        * [部署](part2/ppcom/deploy.md)
        * [对话](part2/ppcom/chat.md)
