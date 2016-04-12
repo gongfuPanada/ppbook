@@ -2,7 +2,7 @@
 
 * [简介](README.md)
 * [初级](part1/README.md)
-   * [PPMessage 一瞥](part1/first-glance-at-ppmessage.md)
+   * [体验 PPMessage](part1/first-glance-at-ppmessage.md)
 * [进阶](part2/README.md)
    * [PPConsole](part2/ppconsole/README.md)
        * [注册用户](part2/ppconsole/sign-up.md)
