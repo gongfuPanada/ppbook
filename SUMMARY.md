@@ -8,7 +8,7 @@
        * [注册用户](part2/ppconsole/sign-up.md)
        * [创建客服团队](part2/ppconsole/create-service-team.md)
        * [管理客服人员](part2/ppconsole/arrange-team-member.md)
-       * ...more
+       * [...more](part2/ppconsole/more.md)
    * [PPKefu](part2/ppkefu/README.md)
        * [下载](part2/ppkefu/download.md)
        * [登录](part2/ppkefu/sign-in.md)
