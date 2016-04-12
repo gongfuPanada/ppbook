@@ -10,7 +10,7 @@
        * [管理客服人员](part2/ppconsole/arrange-team-member.md)
        * ...more
    * [PPKefu](part2/ppkefu/README.md)
-       * [下载](part2/ppkefu/download-ppkefu.md)
+       * [下载](part2/ppkefu/download.md)
        * [登录](part2/ppkefu/sign-in.md)
        * [对话](part2/ppkefu/conversations.md)
        * [联系人](part2/ppkefu/contacts.md)
