@@ -30,5 +30,5 @@
            * [Electron](part3/ppkefu/electron.md)
    * [PPCom](part3/ppcom/README.md)
        * [配置开发环境](part3/ppcom/set-up.md)
-       * SDK
+       * [SDK](part3/ppcom/sdk.md)
 
