@@ -22,7 +22,7 @@
        * [第三方客户端](part2/ppcom/third-party-client.md)
 * [开发](part3/README.md)
    * [PPMessage](part3/ppmessage/README.md)
-       * 配置开发环境
+       * [配置开发环境](part3/ppmessage/set-up.md)
            * [Mac OS X](part3/ppmessage/mac.md)
            * [Linux](part3/ppmessage/linux.md)
            * [Docker](part3/ppmessage/docker.md)
