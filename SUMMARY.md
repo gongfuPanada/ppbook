@@ -20,7 +20,7 @@
        * [对话](part2/ppcom/chat.md)
 * [开发](part3/README.md)
    * [PPMessage](part3/deploy-ppmessage/README.md)
-       * [Mac OS X](part3/deploy-ppmessage/deploy-ppmessage-on-mac.md)
+       * [Mac OS X](part3/deploy-ppmessage/mac.md)
        * [Linux](part3/deploy-ppmessage/deploy-ppmessage-on-linux.md)
        * [docker](part3/deploy-ppmessage/deploy-ppmessage-with-docker.md)
    * [PPKefu](part3/ppkefu/README.md)
