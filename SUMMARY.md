@@ -27,7 +27,7 @@
     * [配置开发环境](part3/ppkefu/set-up-environment.md)
     * [build](part3/ppkefu/build.md)
       * [Cordova](part3/ppkefu/cordova.md)
-      * [Electron](development/ppkefu/electron.md)
+      * [Electron](part3/ppkefu/electron.md)
   * [PPCom]()
     * [配置开发环境]()
     * [SDK]()
