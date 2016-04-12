@@ -1,6 +1,6 @@
 # PPMessage - 即插即用的在线客服平台
 
-* [PPMessage 简介](introduction.md)
+* [简介](introduction.md)
 * [初级](part1/README.md)
   * [对话 PPMessage](part1/chat-with-ppmessage.md)
 * [进阶](part2/README.md)
