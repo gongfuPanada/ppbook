@@ -1,1 +1,5 @@
-{}
+{
+  "gitbook": "2.x.x",
+  "title": "PPMessage Handbook",
+  "description": "Full Documents for using, deploying and developing PPMessage"
+}
