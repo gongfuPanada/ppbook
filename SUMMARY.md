@@ -26,7 +26,7 @@
        * [Linux](part3/ppmessage/linux.md)
        * [Docker](part3/ppmessage/docker.md)
    * [PPConsole](part3/ppconsole/README.md)
-       * 配置开发环境
+       * [配置开发环境](part3/ppconsole/set-up.md)
    * [PPKefu](part3/ppkefu/README.md)
        * [配置开发环境](part3/ppkefu/set-up.md)
        * [build](part3/ppkefu/build.md)
