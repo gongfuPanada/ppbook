@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [简介](README.md)
 * [初级](part1/README.md)
    * [对话 PPMessage](part1/chat-with-ppmessage.md)
 * [进阶](part2/README.md)
