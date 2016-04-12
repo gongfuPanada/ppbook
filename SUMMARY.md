@@ -28,7 +28,7 @@
        * [build](part3/ppkefu/build.md)
            * [Cordova](part3/ppkefu/cordova.md)
            * [Electron](part3/ppkefu/electron.md)
-   * PPCom
+   * [PPCom](part3/ppcom/README.md)
        * 配置开发环境
        * SDK
 
