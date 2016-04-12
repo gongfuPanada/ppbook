@@ -19,7 +19,7 @@
    * [PPCom](part2/ppcom/README.md)
        * [部署](part2/ppcom/deploy.md)
        * [对话](part2/ppcom/chat.md)
-       * 第三方客户端
+       * [第三方客户端](part2/ppcom/third-party-client.md)
 * [开发](part3/README.md)
    * [PPMessage](part3/ppmessage/README.md)
        * [Mac OS X](part3/ppmessage/mac.md)
