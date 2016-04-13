@@ -4,6 +4,7 @@
 * [初级篇](part1/README.md)
    * [和 PPMessage 对话](part1/chat-with-ppmessage.md)
 * [进阶篇](part2/README.md)
+   * [PPMessage 如何工作](part2/how-ppmessage-works.md)
    * [PPConsole](part2/ppconsole/README.md)
        * [注册用户](part2/ppconsole/sign-up.md)
        * [创建客服团队](part2/ppconsole/create-service-team.md)
