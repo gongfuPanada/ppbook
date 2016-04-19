@@ -1,0 +1,16 @@
+# 配置开发环境
+
+### 准备工作
+    
+    cd ~/Documents/ppmessage/ppmessage/ppcom
+    bower install
+    cd ./gulp
+    npm install 
+    gulp
+    
+### 注意事项
+开发时需要执行gulp watch 任务
+
+    cd ~/Documents/ppmessage/ppmessage/ppcom/gulp
+    gulp watch
+
