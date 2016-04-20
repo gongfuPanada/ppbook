@@ -14,3 +14,4 @@
     cd ~/Documents/ppmessage/ppmessage/ppconsole/gulp
     gulp watch
 
+添加新js文件时，需要同时更新 gulp/build.config.js。

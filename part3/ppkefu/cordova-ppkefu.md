@@ -23,18 +23,22 @@ PPKefu是一个[Cordova](https://cordova.apache.org/)项目，支持android, ios
           "id": "phonegap-plugin-push"
         },
     
-    将SENDER_ID改为你的gcm sender id，参考[google cloud message](https://developers.google.com/cloud-messaging/)
-    如果你不想使用gcm推送服务，可以什么都不做。
+    将SENDER_ID改为你的gcm sender id。有关gcm, 请参考[google cloud message](https://developers.google.com/cloud-messaging/)。
+    如果你不想使用gcm推送服务，SENDER_ID可以随意填写（非空即可）。
     
 2. 使用ionic恢复plugins和platforms
 
         ionic state restore
     
-3. 使用ionic
-现在可以使用cordova 或 ionic 命令
+3. 使用ionic 运行andorid, ios
+
+    现在可以使用cordova 或 ionic 命令
 
         ionic run android
-        ionic run ios
-        
         ionic build android
 
+    对于iOS，首先
+        ionic prepare ios
+        open platforms/ios/PPMessage.xcodeproj
+    
+    然后用 Xcode 运行PPKefu。

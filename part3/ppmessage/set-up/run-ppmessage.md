@@ -42,11 +42,11 @@
 * 在首次运行后，再次运行PPMessage
 
       ./dist.sh start
-  一旦PPMessage成功运行，我们就可以访问PPMessage各个模块。格式为：server_ip:server_port/service_name，例如：
+  一旦PPMessage成功运行，我们就可以访问PPMessage各个模块。格式为：http_protocol://server_ip:server_port/service_name，例如：
   
-      localhost:8080/api
-      localhost:8080/ppauth
-      localhost:8080/ppkefu
+      http://localhost:8080/api
+      http://localhost:8080/ppauth
+      http://localhost:8080/ppkefu
       ...
 
 * 停止运行

@@ -7,6 +7,7 @@
    * [PPMessage 如何工作](part2/how-ppmessage-work.md)
    * [PPConsole](part2/ppconsole/README.md)
        * [快速向导](part2/ppconsole/quick-guide.md)
+       * [PPConsole功能](part2/ppconsole/ppconsole-features.md)
    * [PPKefu](part2/ppkefu/README.md)
    * [PPCom](part2/ppcom/README.md)
 * [开发PPMessage](part3/README.md)
@@ -24,4 +25,3 @@
        * [Electron-PPKefu](part3/ppkefu/electron-ppkefu.md)
    * [PPCom](part3/ppcom/README.md)
        * [配置开发环境](part3/ppcom/set-up-ppcom.md)
-
