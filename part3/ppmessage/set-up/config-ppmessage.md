@@ -1,13 +1,14 @@
 # 配置PPMessage
 
-在搭建好PPMessage开发环境后，运行PPMessage之前，需要对PPMessage做一些全局设置。
+在搭建好PPMessage开发环境后，运行PPMessage前，需要对PPMessage做一些全局设置。
 
-### 配置config.py
-配置文件目录 ~/Documents/ppmessage/ppmessage/bootstrap，找到config.localhost.py，然后
+### 配置 bootstrap/config.py
+进入配置文件目录，生成config.py
 
-    cp config.localhost.py config.py
+    cd ~/Documents/ppmessage/ppmessage/bootstrap
+    cp config.template.py config.py
 
-请参照config.py里的注释填写配置信息
+根据config.py里的注释填写配置信息
 
     # -*- coding: utf-8 -*-
     #
@@ -33,19 +34,22 @@
     """
 
     BOOTSTRAP_CONFIG = {
+        # This team is the super admin's team
         "team": {
-            "app_name": "ppmessage",
-            "company_name": "YOURUI",
+            "app_name": "your-team-name",            # your service team name
+            "company_name": "your-company-name",     # your company name
         },
-
+        
+        # This user is the super user, who has two roles:
+        # 1. the team admin of first service team
+        # 2. the super admin of all service teams
         "user": {
             "user_language": "zh_cn", # zh_cn, en_us, zh_tw
-            "user_firstname": "Guijin",
-            "user_lastname": "Ding",
-            "user_fullname": "Guijin Ding",
-            # email is user account
-            "user_email": "dingguijin@gmail.com",
-            "user_password": "123",
+            "user_firstname": "your-first-name",
+            "user_lastname": "your-last-name",
+            "user_fullname": "your-fullname",
+            "user_email": "your-login-email",
+            "user_password": "your-password",
         },
 
         "mysql": {
@@ -66,10 +70,10 @@
         },
     
         # nginx conf 
+        # In Ubuntu/Debian/Docker, "nginx_conf_path" is "/usr/local/nginx/conf/nginx.conf"
+        # In Mac, "nginx_conf_path" is "/usr/local/etc/nginx/nginx.conf"
         "nginx": {
-            # In Ubuntu/Debian, "nginx_conf_path" is "/usr/local/nginx/conf/nginx.conf"
-            # In Mac, "nginx_conf_path" is "/usr/local/etc/nginx/nginx.conf"
-            "nginx_conf_path": "/usr/local/etc/nginx/nginx.conf",
+            "nginx_conf_path": "/path-to-your-nginx.conf",
             "server_name": ["ppmessage.com", "www.ppmessage.com"],
             "listen": "8080", #80
 
@@ -113,5 +117,6 @@
 ###下一步
 完成配置后，下一步是运行PPMessage
     
-    1. 用配置脚本搭建开发环境，下一步是[运行PPMessage](./run-ppmessage.md)
-    2. 用Docker搭建开发环境，下一步是[用docker运行PPMessage](./run-ppmessage-with-docker.md)
+* 如果用配置脚本搭建开发环境，查看 [运行PPMessage](./run-ppmessage.md)
+
+* 如果用Docker搭建开发环境，查看 [用docker运行PPMessage](./run-ppmessage-with-docker.md)
