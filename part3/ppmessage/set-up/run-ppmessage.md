@@ -57,8 +57,6 @@
 ### 其他
 * 为PPConsole、PPCom、PPKefu安装bower, npm依赖，执行gulp任务
 
-  水电费
-
       ./dist.sh bower
       ./dist.sh npm
       ./dist.sh gulp
