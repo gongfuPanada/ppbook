@@ -1,6 +1,9 @@
 # PPMessage 如何工作
 
-### PPKefu, PPConsole, PPCom 与 PPMessage
+PPMessage客服平台包括PPConsole，PPKefu，PPCom，PPMessage服务器四部分。
+前三者属于客服端范畴，都连接着PPMessage服务器。
+
+### PPKefu, PPConsole, PPCom 与 PPMessage服务器
 
     +--------------------+     1      +-----------------------+      2      +--------------------+
     |  Customer Client   +----------->+        Server         +------------>+   Service Client   |
@@ -31,6 +34,6 @@
 
 6. 客服管理员通过 PPConsole 进行管理团队，修改配置等操作后，保存相应信息到服务器。
 
-7. 客服管理员通过PPConsole，获取在第三方网站部署PPCom所需的代码。
+7. 客服管理员通过PPConsole，获取在第三方网站部署PPCom所需的代码，设置PPCom显示样式、默认行为。
 
 8. 客服管理员通过PPConsole，打开并自动登录PPKefu。

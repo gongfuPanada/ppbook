@@ -1,3 +1,3 @@
 # 开发PPMessage
 
-    1. [set-up-ppmessage](./set-up/README.md)
+* [启动PPMessage](./set-up/README.md)

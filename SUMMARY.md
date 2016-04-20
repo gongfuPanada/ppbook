@@ -1,15 +1,15 @@
 # Summary
 
 * [简介](README.md)
-* [初级篇](part1/README.md)
+* [体验PPMessage](part1/README.md)
    * [和 PPMessage 对话](part1/chat-with-ppmessage.md)
-* [进阶篇](part2/README.md)
+* [部署PPMessage](part2/README.md)
    * [PPMessage 如何工作](part2/how-ppmessage-work.md)
    * [PPConsole](part2/ppconsole/README.md)
        * [快速向导](part2/ppconsole/quick-guide.md)
    * [PPKefu](part2/ppkefu/README.md)
    * [PPCom](part2/ppcom/README.md)
-* [开发](part3/README.md)
+* [开发PPMessage](part3/README.md)
    * [PPMessage](part3/ppmessage/README.md)
        * [启动](part3/ppmessage/set-up/README.md)
            * [搭建开发环境](part3/ppmessage/set-up/set-up-environment.md)
