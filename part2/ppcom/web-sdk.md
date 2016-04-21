@@ -113,8 +113,7 @@ window.ppSettings = {
 
   ```javascript
   PP.boot({
-    app_key: app_key,
-    app_secret: app_secret
+    app_uuid: app_uuid
   }, function(isSucess, errorCode) {
     //回调函数
   });
@@ -148,8 +147,7 @@ PP.dismiss();
  * @return 无返回值
  */
 PP.update({
-    app_key: app_key,
-    app_secret: app_secret,
+    app_uuid: app_uuid,
     user_email: xxx@qq.com
 });
 ```
