@@ -170,7 +170,7 @@ PP.shutdown();
 
 Error Code(错误码) | Error description(错误描述)
 ----------------- | -------------------------------
-10000             | appKey 或者 appSecret 填写有误
+10000             | appUUID 填写有误
 10001             | 找不到 user_email 对应的用户，可能未注册或者邮箱填写有误
 10002             | PPCom 暂时还无法运行在 IE9 或以下版本中
 10003             | 服务不可用
