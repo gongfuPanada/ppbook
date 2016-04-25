@@ -30,37 +30,59 @@ window.ppSettings = {
 ```
 
 ### 使用Web SDK
-网站上集成PPCom Web SDK后，你可能在以下情景下调用Web SDK接口。
+当PPCom启动时，会根据开发者传入的参数去PPMessage服务器创建或获取一个用户（该用户属于PPMessage系统，与开发者网站用户不是一个概念）。如果PPCom启动
+时带着`user_email`参数，则称用户为具名用户，否则称为匿名用户。具名用户通过`user_email`将开发者网站用户和PPMessage系统用户关联起来。 
 
-* **用户打开网站，但是尚未登录**
+典型情景：一个有自己的用户系统（支持用户登录）的网站，集成了PPCom Web SDK。针对网站用户的不同行为，网站开发者需要调用SDK接口来正确地显示PPCom。
 
-  用户在浏览网站，但是没有登录，此时你想在网站显示PPCom，让该用户作为一个匿名用户和客服对话。
+考虑以下用户行为：
+
+* **网站用户打开网站**
+
+  用户在浏览网站，但是没有登录，此时将该用户视为匿名用户，以匿名用户的身份启动PPCom。开发者可以给匿名用户指定默认名称
+  和默认头像，如果没有指定的话，PPMessage系统会给匿名用户创建名称（根据IP）和头像（随机头像）。
+  
+  如果你想让PPCom在网站一打开就自动出现，只需要创建window.ppSettings对象即可，SDK会自动以此对象生成PPCom实例。
+
+  ```javascript
+  window.ppSettings = {
+      app_uuid: 'your-app-uuid',
+      user_name: 'anonymous-user',
+      user_icon: 'http://xxx/anonymous-user/icon.png',
+      language: 'zh-CN'
+  };
+  ```
+  
+  如果你想要自己控制PPCom何时出现，则不要创建window.ppSettings对象，而是直接调用boot方法。
   
   ```javascript
   // boot & show PPCom
   PP.boot({
-    app_uuid: 'your-app-uuid'
+    app_uuid: 'your-app-uuid',
+    user_name: 'anonymous-user',
+    user_icon: 'http://xxx/anonymous-user/icon.png',
+    language: 'zh-CN'
   });
   ```
   
-* **用户登录**
+* **网站用户登录**
  
-  用户登录后，你需要重新启动PPCom，让用户作为一个登录用户和客服对话。
+  网站用户登录网站后，开发者需要以具名用户的身份重启PPCom。关键在于boot时传入的参数对象里必须包含`user_email`。
   
   ```javascript
   // boot ppcom
   PP.boot({
     app_uuid: 'your-app-uuid',
     user_email: 'test@test.com',
-    user_name: 'test',
-    user_icon: 'http://xxx/test/icon.png',
-    language: 'en'
+    user_name: 'test-user',
+    user_icon: 'http://xxx/test-user/icon.png',
+    language: 'zh-CN'
   });
   ```
 
-* **修改用户信息**
+* **网站用户修改自身信息**
 
-  当登录用户修改了自身信息后，你需要告诉PPCom用户信息已更新。
+  网站用户修改了自身信息（显示名称、头像）后，开发者需要告诉PPCom更新用户信息。`user_email`标示需要更新的用户。
   
   ```javascript
   // update ppcom user info
@@ -68,19 +90,23 @@ window.ppSettings = {
     app_uuid: 'your-app-uuid',
     user_email: 'test@test.com',
     user_name: 'test123',
-    user_icon: 'http://xxx/test/icon.png',
-    language: 'zh'
+    user_icon: 'http://xxx/test123/icon.png',
+    language: 'en'
   });
   ```
  
-* **用户登出**
+* **网站用户退出登录**
 
-  用户退出登录后，让用户成为一个匿名用户，需要重新启动PPCom。
+  网站用户退出登录后，开发者需要以匿名用户身份重新启动PPCom。之前创建的匿名用户在本地已经缓存，所以此次不会创建
+  新的匿名用户。
   
   ```javascript
     // boot ppcom
     PP.boot({
       app_uuid: 'your-app-uuid'
+      user_name: 'anonymous-user',
+      user_icon: 'http://xxx/anonymous-user/icon.png',
+      language: 'zh-CN'
     });
   ```
   
@@ -95,16 +121,16 @@ window.ppSettings = {
 
   ```javascript
   window.ppSettings = {
-	//app_uuid，必填字段
+	// app_uuid，必填字段，是客服团队的uuid，可在PPConsole的 团队设置-基本信息 中找到
 	app_uuid: "xxxxxx",
 	
-    //第三方用户email，可选字段，不填的话，将会以匿名用户身份收发信息
-	user_email: "somebody.web@ppmessage.cn",
-    //用户姓名，可选字段，在客服端会显示此处填写的用户姓名
+    // 第三方用户email，可选字段，不填则会以匿名用户身份启动PPCom，否则以具名用户身份启动PPCom
+	user_email: "somebody.web@ppmessage.com",
+    // 用户姓名，可选字段，客服看到的PPCom用户的名称
     user_name: "张三",
-    //用户头像，可选字段，在客服端会显示此处填写的用户头像
+    // 用户头像，可选字段，客服看到的PPCom用户的头像
     user_icon: "http://xxxx.com/avatar.png",
-	//语言配置，可选字段，zh-CN:"中文"，en:"英文", 默认为中文
+	// 语言配置，可选字段，zh-CN:"中文"，en:"英文", 默认为中文，决定PPCom界面显示语言
 	language: "zh-CN",
   };
   ```
@@ -113,13 +139,19 @@ window.ppSettings = {
 
   ```javascript
   PP.boot({
-    app_uuid: app_uuid
+    app_uuid: 'your-app_uuid',
+    user_name: 'ppcom-user-name',
+    user_icon: 'ppcom-user-icon',
+    language: 'zh-CN'
   }, function(isSucess, errorCode) {
     //回调函数
   });
   ```
 
 - 显示`PPCom`消息面板
+
+  消息面板指的是对话列表或对话界面。用户可以通过在对话列表和对话界面，点击最小化按钮隐藏消息面板。
+  要重新显示消息面板，调用PP.show方法。
 
   ```javascript
 /**
@@ -131,6 +163,8 @@ PP.show();
 
 - 隐藏`PPCom`消息面板
 
+  消息面板指的是对话列表或对话界面。用户可以通过在对话列表和对话界面，点击最小化按钮关闭消息面板。
+  
   ```javascript
 /**
  * @description 隐藏 PPCom
@@ -140,21 +174,27 @@ PP.dismiss();
 ```
 
 - 更新`PPCom`
-
+  
+  当需要更新PPCom用户的信息（头像，显示名称）时，调用PP.update方法。
+  
   ```javascript
 /**
  * @description 更新 PPCom
  * @return 无返回值
  */
 PP.update({
-    app_uuid: app_uuid,
-    user_email: xxx@qq.com
+    app_uuid: 'your-app_uuid',
+    user_email: 'somebody.web@ppmessage.com',
+    user_name: 'new-user-name',
+    user_icon: 'new-user-icon'
 });
 ```
 
   **说明：**参数可选，不填写参数的话，则默认使用`window.ppSettings`来更新`PPCom`，当重新设置`window.ppSettings.user_email`的时候，必须调用此函数来更新`PPCom`
 
 - 关闭`PPCom`
+  
+  完全移除PPCom，但是不会清空window.ppSettings对象。如果想要重新显示PPCom，需要调用PP.boot方法。
 
   ```javascript
 PP.shutdown();
