@@ -23,7 +23,8 @@
 ### 集成
 
 #### 第一步 从官网下载`PPComLib.framework`和`PPComLib.bundle`
-
+  [下载 PPCom iOS SDK]()
+  
 #### 第二步 导入到项目中
 
 直接拖动`PPComLib.framework`和`PPComLib.bundle`到你的项目中去，松开鼠标之后，`XCode`会提示你设置一些拷贝信息，这个时候勾选上`Copy items if needed`前面的复选框，以确保真正的拷贝到了你的项目中去。
@@ -71,4 +72,4 @@
 
 ### 小结
 
-至此，iOS SDK 的集成与使用，已经全部介绍完毕。在集成过程中，如果有任何不明白的地方，您可以参考附件中提供的`PPComDemo`项目来进行配置，或者可以访问我们的[官网](https://www.ppmessage.com)来进行咨询。
+至此，iOS SDK 的集成与使用，已经全部介绍完毕。在集成过程中，如果有任何不明白的地方，您可以参考附件中提供的`PPComDemo`项目来进行配置，或者可以访问我们的[官网](https://www.ppmessage.com)咨询客服。
