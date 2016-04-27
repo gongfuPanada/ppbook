@@ -4,7 +4,7 @@ Web SDK帮助开发者在Web端集成PPCom。
 
 ----
 
-### 集成 Web SDK
+#### 集成 Web SDK
 集成Web sdk之前你应该在PPConsole创建一个客服团队，然后在**团队设置-基本信息**栏获取团队uuid(下文的app_uuid），之后可以选择**嵌入代码**或者**加载文件**两种方式进行Web集成。
 
 #### 嵌入代码
@@ -31,7 +31,7 @@ window.ppSettings = {
 <script src="https://ppmessage.com/ppcom/assets/pp-library.min.js" type="text/javascript"></script>
 ```
 
-### Web SDK 接口
+#### Web SDK 接口
 
 - 配置选项
   
@@ -131,7 +131,7 @@ window.ppSettings = {
   ```
 
 
-### 使用Web SDK
+#### 使用Web SDK
 
 当PPCom启动时，会根据开发者传入的参数去PPMessage服务器创建或获取一个用户（该用户属于PPMessage系统，与开发者网站用户不是一个概念）。如果PPCom启动时带着`user_email`参数，则称用户为具名用户，否则称为匿名用户。具名用户通过`user_email`将开发者网站用户和PPMessage系统用户关联起来。 
 
@@ -206,7 +206,7 @@ window.ppSettings = {
     });
   ```
   
-### 错误码
+#### 错误码
 
 当`window.ppSettings`的配置信息有误而导致`PPCom`无法正常显示的时候，`PPCom`会在浏览器的`console`中打印出相应的错误信息和错误码。
 
