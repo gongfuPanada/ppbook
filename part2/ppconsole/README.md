@@ -2,7 +2,7 @@
 
 PPConsole 是 PPMessage 的客服管理系统，提供注册账号、管理团队，部署PPCom代码，打开PPKefu等功能。
 
-[快速向导](quick-guide.md)
+[快速向导](./quick-guide.md)
 
 [数据总览](./data-overview.md)
 
@@ -21,4 +21,3 @@ PPConsole 是 PPMessage 的客服管理系统，提供注册账号、管理团�
 [集成PPCom](./integrate-ppcom.md)
 
 [账户设置](./account-settings.md)
-
