@@ -1,6 +1,6 @@
 # PPCom
 
-PPCom是PPMessage的客户端应用，网站用户使用PPCom和客服对话。
+PPCom是PPMessage的客户端应用，它可以作为聊天组件集成到网页或者移动应用中。
 
 ------
 

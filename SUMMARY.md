@@ -3,7 +3,7 @@
 * [简介](README.md)
 * [体验PPMessage](part1/README.md)
   * [和 PPMessage 对话](part1/chat-with-ppmessage.md)
-* [部署PPMessage](part2/README.md)
+* [使用PPMessage](part2/README.md)
   * [PPMessage 如何工作](part2/how-ppmessage-work.md)
   * [PPCom](part2/ppcom/README.md)
     * [PPCom界面](part2/ppcom/interface.md)
