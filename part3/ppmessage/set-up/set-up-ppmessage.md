@@ -120,9 +120,9 @@ gunzip GeoLite2-City.mmdb.gz
 
 其他命令列举如下：
 
-* 启动`PPMessage`
+* 启动`PPMessage`（`Linux`下需要`sudo`）
 
-  执行`./dist.sh bootstrap`会初始化数据库，平时启动`PPMessage`只需要执行以下命令（`Linux`下需要`sudo`）
+  执行`./dist.sh bootstrap`会初始化数据库，平时启动`PPMessage`只需要执行
 
   ```
   ./dist.sh start
