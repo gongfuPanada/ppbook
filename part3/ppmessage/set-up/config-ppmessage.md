@@ -1,8 +1,8 @@
 # 配置PPMessage
 
-在搭建好PPMessage开发环境后，运行PPMessage前，需要对PPMessage做一些全局设置。
+运行PPMessage前，需要对PPMessage做一些全局设置。
 
-### 配置 bootstrap/config.py
+### 配置文件
 进入配置文件目录，生成config.py
 
     cd ~/Documents/ppmessage/ppmessage/bootstrap
@@ -113,10 +113,3 @@
 
     BOOTSTRAP_DATA.apns
     BOOTSTRAP_DATA.gcm
-
-###下一步
-完成配置后，下一步是运行PPMessage
-    
-* 如果用配置脚本搭建开发环境，查看 [运行PPMessage](./run-ppmessage.md)
-
-* 如果用Docker搭建开发环境，查看 [用docker运行PPMessage](./run-ppmessage-with-docker.md)

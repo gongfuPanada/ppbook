@@ -27,7 +27,6 @@
       * [在Mac和Linux上搭建开发环境](part3/ppmessage/set-up/set-up-ppmessage.md)
       * [用Docker搭建开发环境](part3/ppmessage/set-up/set-up-ppmessage-with-docker.md)
       * [配置PPMessage](part3/ppmessage/set-up/config-ppmessage.md)
-      * [运行PPMessage](part3/ppmessage/set-up/run-ppmessage.md)
     * [PPConsole](part3/ppconsole/README.md)
       * [配置开发环境](part3/ppconsole/set-up-ppconsole.md)
     * [PPKefu](part3/ppkefu/README.md)
