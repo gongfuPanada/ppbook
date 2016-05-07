@@ -12,11 +12,10 @@ git clone git@github.com:PPMESSAGE/ppmessage.git
 ```
 
 ### 下载geolite2
-源代码下载完成后，进入`~/Documents/ppmessage/api/geolite2`目录，执行
+源代码下载完成后，进入`~/Documents/ppmessage`目录，执行
 
 ```
-wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
-gunzip GeoLite2-City.mmdb.gz
+ppmessage/scripts/download_geolite2.sh
 ```
 
 ### 安装依赖软件

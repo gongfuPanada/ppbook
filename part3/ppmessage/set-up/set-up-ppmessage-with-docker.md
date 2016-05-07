@@ -63,11 +63,10 @@ git clone git@github.com:PPMESSAGE/ppmessage.git
 ```
 
 #### 下载geolite2
-进入`~/Documents/ppmessage/api/geolite2`目录，执行
+进入`~/Documents/ppmessage`目录，执行
 
 ```
-wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
-gunzip GeoLite2-City.mmdb.gz
+ppmessage/scripts/download_geolite2.sh
 ```
 
 #### 下载bower, npm依赖
