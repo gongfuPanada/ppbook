@@ -1,6 +1,6 @@
 # PPKefu
 
-PPKefu 是PPMessage的客服端软件，客服使用PPKefu和网站用户对话。PPkefu支持一下系统或平台：
+PPKefu 是PPMessage的客服端软件，客服使用PPKefu和网站用户对话。PPkefu支持以下系统或平台：
     
     1. 浏览器
     2. Mac OS X
