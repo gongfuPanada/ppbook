@@ -5,32 +5,36 @@
 ---
 
 ### 下载PPMessage源代码
-首先需要安装git，然后从github下载PPMessage源代码，假设保存路径为`~/Documents`。
+首先需要安装git，然后从github下载PPMessage源代码，假设保存路径为`~/Documents/ppmessage`。
 
 ```
-cd ~/Documents
 git clone git@github.com:PPMESSAGE/ppmessage.git
 ```
 
 ### 下载geolite2
-PPMessage下载完成后，执行：
+PPMessage源代码下载完成后，进入`~/Documents/ppmessage/api/geolite2`目录，执行
 
 ```
-cd ~/Documents/ppmessage/api/geolite2
 wget http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
 gunzip GeoLite2-City.mmdb.gz
 ```
 
 ### 安装依赖
-**在Mac下**, 执行脚本
+进入`~/Documents/ppmessage/ppmessage/scripts`目录。
 
-```bash ~/Documents/ppmessage/ppmessage/scripts/set-up-ppmessage-on-mac.sh```
+* 在Mac下, 执行
 
-**在Linux(Debian/Ubuntu)下**, 执行
+  ```
+  bash set-up-ppmessage-on-mac.sh
+  ```
 
-```bash ~/Documents/ppmessage/ppmessage/scripts/set-up-ppmessage-on-linux.sh```
+* 在Linux(Debian/Ubuntu)下, 执行
 
-注意：当执行脚本安装依赖时，你机器上原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY配置脚本。
+  ```
+  bash set-up-ppmessage-on-linux.sh
+  ```
+
+注意：当执行脚本安装依赖时，操作系统原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY配置脚本。
 
 * Mac下，配置脚本会通过源码编译安装 mysql-connector-python-2.1.3, 会覆盖你机器上已安装版本。
 
