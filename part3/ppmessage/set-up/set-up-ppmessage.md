@@ -62,21 +62,18 @@ sudo service mysql start
 sudo service redis-server start
 sudo nginx
 ```
-
-* 在Mac下，输入以下命令启动上述服务
+*在Mac下，输入以下命令启动上述服务
 
 ```
 brew services start mysql
 brew services start redis
 nginx
 ```
-
 然后，进入`~/Documents/ppmessage`，执行以下操作：
 
 1. 将ppmessage加入Python 路径中
 
 ```sudo ./dist.sh dev```
-
 2. 初始化数据库、redis缓存，更新nginx配置文件
 
 ```bash
@@ -86,7 +83,6 @@ nginx
 # for Debian/Ubuntu
 sudo ./dist.sh bootstrap
 ```
-
 3. 重新加载nginx配置文件
 
 ```bash
@@ -96,7 +92,6 @@ nginx -s reload
 # for Debian/Ubuntu
 sudo nginx -s reload
 ```
-
 4. 启动PPMessage
 
 ```bash
@@ -106,7 +101,6 @@ sudo nginx -s reload
 # for Debian/Ubuntu
 sudo ./dist.sh start
 ```
-
 5. 生成PPKefu, PPConsole, PPCom的js, css文件，执行
 
 ```./dist.sh gulp```
