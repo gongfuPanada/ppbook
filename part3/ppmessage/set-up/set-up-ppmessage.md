@@ -34,7 +34,7 @@ gunzip GeoLite2-City.mmdb.gz
   bash set-up-ppmessage-on-linux.sh
   ```
 
-注意：当执行脚本安装依赖时，操作系统原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY配置脚本。
+注意：当执行脚本安装依赖时，操作系统原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY脚本。
 
 * `Mac`下，配置脚本会通过源码编译安装`mysql-connector-python-2.1.3`, 会覆盖你机器上已安装版本。
 
