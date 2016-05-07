@@ -25,7 +25,7 @@
   * [PPMessage](part3/ppmessage/README.md)
     * [启动](part3/ppmessage/set-up/README.md)
       * [搭建开发环境](part3/ppmessage/set-up/set-up-ppmessage.md)
-      * [用Docker搭建PPMessage开发环境](part3/ppmessage/set-up/set-up-ppmessage-with-docker.m)d
+      * [用Docker搭建PPMessage开发环境](part3/ppmessage/set-up/set-up-ppmessage-with-docker.md)
       * [配置PPMessage](part3/ppmessage/set-up/config-ppmessage.md)
       * [运行PPMessage](part3/ppmessage/set-up/run-ppmessage.md)
     * [PPConsole](part3/ppconsole/README.md)
