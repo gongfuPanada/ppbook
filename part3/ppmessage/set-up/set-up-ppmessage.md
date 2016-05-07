@@ -1,4 +1,4 @@
-# 在Mac、Linux上配置开发环境
+# 在Mac、Linux上搭建开发环境
 
 依照以下操作，你可在`Mac`，`Linux(Debia/Ubuntu)`上搭建`PPMessage`开发环境。
 
