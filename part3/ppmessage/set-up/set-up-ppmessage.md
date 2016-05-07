@@ -53,62 +53,68 @@ cd ~/Documents/ppmessage
 
 
 ### 启动PPMessage
-启动PPMessage之前，确保mysql server, redis-server, nginx已启动。
+首先，启动PPMessage之前，确保mysql server, redis-server, nginx已启动。
+
+* 在Mac下，输入以下命令启动上述服务
+
+  ```
+  brew services start mysql
+  brew services start redis
+  nginx
+  ```
 
 * 在Linux（Debian/Ubuntu）下，输入以下命令启动上述服务
+  
+  ```
+  sudo service mysql start
+  sudo service redis-server start
+  sudo nginx
+  ```
 
-```
-sudo service mysql start
-sudo service redis-server start
-sudo nginx
-```
-*在Mac下，输入以下命令启动上述服务
+然后，进入`~/Documents/ppmessage`目录，执行以下操作：
 
-```
-brew services start mysql
-brew services start redis
-nginx
-```
-然后，进入`~/Documents/ppmessage`，执行以下操作：
+1. 将ppmessage加入Python PATH
 
-1. 将ppmessage加入Python 路径中
+  ```
+  sudo ./dist.sh dev
+  ```
+  
+2. 初始化数据库、redis缓存，更新nginx配置文件（Linux下需要`sudo`）
 
-```sudo ./dist.sh dev```
-2. 初始化数据库、redis缓存，更新nginx配置文件
+  ```
+  ./dist.sh bootstrap
+  ```
+  
+3. 重新加载nginx配置文件(linux下需要`sudo`)
 
-```bash
-# for Mac
-./dist.sh bootstrap
+  ```
+  nginx -s reload
+  ```
+4. 生成PPKefu, PPConsole, PPCom的js, css文件
+  
+  ```
+  ./dist.sh gulp
+  ```
+  
+5. 启动PPMessage(Linux下需要`sudo`)
 
-# for Debian/Ubuntu
-sudo ./dist.sh bootstrap
-```
-3. 重新加载nginx配置文件
+  ```bash
+  # for Mac
+  ./dist.sh start
 
-```bash
-# for Mac
-nginx -s reload
-
-# for Debian/Ubuntu
-sudo nginx -s reload
-```
-4. 启动PPMessage
-
-```bash
-# for Mac
-./dist.sh start```
-
-# for Debian/Ubuntu
-sudo ./dist.sh start
-```
-5. 生成PPKefu, PPConsole, PPCom的js, css文件，执行
-
-```./dist.sh gulp```
+  # for Debian/Ubuntu
+  sudo ./dist.sh start
+  ```
 
 ### 访问PPMessage
-一旦PPMessage成功运行，我们就可以访问PPMessage各个模块。地址格式为：`http_protocol://server_ip:server_port/service_name`， `http_protocol`与配置文件里nginx的ssl设置有关，为http或者https, `server_ip`是配置文件里的服务器名字，`server_port`是配置文件里nginx监听的端口。
+一旦PPMessage成功运行，我们就可以访问PPMessage各个模块。
 
-例如：
+地址格式为：`http_protocol://server_ip:server_port/service_name`。
+
+其中，`http_protocol`与配置文件里nginx的ssl设置有关，为http或者https, `server_ip`是配置文件里的服务器名字，`server_port`是配置文件里nginx监听的端口。
+
+例子：
+
     访问PPKefu: http://192.168.0.52:8080/ppkfu
     访问PPConsole: http://192.168.0.52:8080
 
