@@ -36,9 +36,9 @@ gunzip GeoLite2-City.mmdb.gz
 
 注意：当执行脚本安装依赖时，操作系统原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY配置脚本。
 
-* Mac下，配置脚本会通过源码编译安装 mysql-connector-python-2.1.3, 会覆盖你机器上已安装版本。
+* Mac下，配置脚本会通过源码编译安装`mysql-connector-python-2.1.3`, 会覆盖你机器上已安装版本。
 
-* Linux下，配置脚本会通过源码编译安装 nginx-1.8.0、ffmpeg-2.8.5、mysql-connector-python-2.1.3, 会覆盖你机器上已安装版本。(之所以不用包管理器安装nginx,是因为包管理器安装nginx不包含nginx-upload-module)
+* Linux下，配置脚本会通过源码编译安装`nginx-1.8.0`，`ffmpeg-3.0.2`，`mysql-connector-python-2.1.3`, 会覆盖你机器上已安装版本。
 
 
 ### 安装npm, bower包
