@@ -1,4 +1,4 @@
-# 配置PPMessage开发环境
+# 配置开发环境
 
 ### 下载PPMessage源代码
 首先需要安装git, 然后

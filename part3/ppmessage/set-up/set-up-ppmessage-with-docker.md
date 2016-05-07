@@ -1,4 +1,4 @@
-# 使用 Docker 搭建 PPMessage 开发环境，启动 PPMessage
+# 使用 Docker 搭建开发环境
 
 要想使用或者开发 PPMessage，首先必须搭建 PPMessage 开发环境。即使对于 PPMessage 团队的开发人员，从头开始搭建开发环境也是一件费时费力的事情。幸运的是，借助 Docker 的魔力，这些困难已经迎刃而解。
 
@@ -8,8 +8,6 @@
 > Docker allows you to package an application with all of its dependencies into a standardized unit for software development. Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
 
 简而言之，Docker可以将程序运行时的所有依赖软件打包成为一个标准的 Docker 镜像。借助于此 Docker 镜像，该程序可以在任何支持 Docker 的机器上运行，并且效果完全一样。
-
-### 使用 Docker 搭建 PPMessage 开发环境
 
 #### 关于 Docker
 首先仔细阅读 Docker 的官方引导文档 [docker getting started](https://docs.docker.com/mac/) ，了解 Docker 的基本概念和使用方法。
@@ -44,9 +42,6 @@ docker pull ppmessage/ppmessage
 ```
 
 下载过程可能比较漫长，请继续看下面两个步骤：**下载 PPMessage 源码**， **配置PPmessage**
-
-
-### 使用 Docker 启动 PPMessage
 
 #### 下载 PPMessage 源码
 启动 PPMessage 之前，首先需要获取PPMessage的源码。源码托管在 [github](https://github.com/PPMESSAGE/ppmessage) 上。要下载它，执行以下命令(下载到`~/Documents`目录下)：

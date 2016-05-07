@@ -1,3 +1,3 @@
 # 开发PPMessage
 
-* [启动PPMessage](./set-up/README.md)
+* [搭建开发环境](./set-up/README.md)
