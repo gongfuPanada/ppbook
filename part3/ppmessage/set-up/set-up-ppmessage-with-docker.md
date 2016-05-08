@@ -86,9 +86,7 @@ sudo apt-get install -y nodejs
 然后，用`npm`安装`cnpm, bower, gulp`
 
 ```
-sudo npm install -g cnpm
-sudo npm install -g bower
-sudo npm install -g gulp
+sudo npm install -g cnpm bower gulp
 ```
 
 最后，下载`PPCom, PPKefu, PPConsole`的`bower，npm`依赖。进入`~/Documents/ppmessage`目录，执行
