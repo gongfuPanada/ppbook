@@ -23,11 +23,11 @@ www/tempaltes下的html。
     
         gulp watch
         
-3. build.config.js里定义了所有需要监听的js文件，添加新js文件时需要更新build.config.js
+3. config/build.config.js里定义了所有需要监听的js文件，添加新js文件时需要更新config/build.config.js
 
-4. 第一次运行gulp 任务时会生成app.config.json， 此文件定义了ppkefu连接服务器、开发者模式等选项。
+4. 运行gulp 任务时会重新生成config/app.config.json， 此文件定义了ppkefu连接服务器、开发者模式等选项。
     
-   默认情况下，会根据PPMessage的配置文件生成app.config.json。你可以修改这个文件。如果想要恢复默认选项，只需要删除它，并重新运行gulp即可。但你重新初始化PPMessage之后，需要删除这个文件并运行gulp任务。
+   文件里的`overwrite`参数决定了是否每次运行gulp都更新此文件，默认每次都会更新，如果你不想的话，把`overwrite`的值改为`false`即可。
 
 ### 运行网页版PPKefu
 确认PPMessage已经运行，并且在ppkefu目录下执行过gulp，打开浏览器，在地址栏输入
