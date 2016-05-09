@@ -7,7 +7,7 @@ PPKefu是一个[electron](http://electron.atom.io/)项目, 支持`Mac, Mac App S
     
 在此目录下，与`electron`相关的有以下三个文件:
     
-    package.json,        定义electron npm 依赖，指定打包应用时使用的electron版本
+    package.json,        定义打包electron安装包的各项设置
     www/package.json,    指定应用名字，版本，主文件名字
     www/main.js,         运行electron应用的主文件
     
@@ -19,7 +19,7 @@ PPKefu是一个[electron](http://electron.atom.io/)项目, 支持`Mac, Mac App S
   安装`electron-prebuilt, electron-packager, electron-builder`。执行
  
  ``` 
- npm run electron set-up
+ npm run set-up-electron
  ```
  
 * 运行 electron
@@ -30,53 +30,8 @@ PPKefu是一个[electron](http://electron.atom.io/)项目, 支持`Mac, Mac App S
   ```  
 
 * 生成安装包
-  
-  * `Mac`下，生成`.dmg`安装包，执行
-  
-    ```
-    npm run electron build-osx
-    ```
-
-  * windows下，生成`.exe`安装包
-    
-    需要先安装`NSIS 2.x`, 并把`NSIS`的主目录加入到环境变量中，最后执行
     
     ```
-    npm run electron build-win32
-    
-    npm run electron build-win64
+    npm run dist
     ```
-
-* 要获取所有与electron 相关的命令信息，执行
-  
-  ```
-  npm run electron
-  ```
-  
-  这会给出：
-  
-  ```
-  Usage:
-  
-  Enter ppkefu root directory, run this script via npm:  
-    
-    npm run electron [command]
-  
-  Commands:
-  set-up                      Install electron package and save to package.json
-  clean                       Clean electron dist directory
-  clean-linux                 Clean electron linux dist directory
-  clean-osx                   Clean electron osx dist directory
-  clean-mas                   Clean electron mas dist directory (for Mac App Store)
-  clean-win32                 Clean electron win32 dist directory
-  clean-win64                 Clean electron win64 dist directory
-  pack-linux                  Create electron linux package
-  pack-osx                    Create electron osx package
-  pack-mas                    Create electron mas package (for Mac App Store)
-  pack-win32                  Create electron win32 package
-  pack-win64                  Create electron win64 package
-  build-osx                   Create electron osx installer
-  build-mas                   Create electron mas installer (for Mac App Store)
-  build-win32                 Create electron win32 installer
-  build-win64                 Create electron win64 installer
-```
+    更多信息请参考electron-builder的文档。
