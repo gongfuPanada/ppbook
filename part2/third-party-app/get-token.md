@@ -74,4 +74,4 @@ GET https://ppmessage.com/ppauth/auth?state=xxxx&client_id=xxxx&redirect_id=xxxx
   }
   ```
   
-  要获取所有`API`的调用方法，请查看[API列表]()。
+  要获取所有`API`的调用方法，请查看[API列表](./api/README.md)。
