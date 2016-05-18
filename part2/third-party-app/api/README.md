@@ -806,8 +806,326 @@ Name                   | Type      | Description
 
 返回结果（例子）
 ```
-
+{
+    'list': [
+        {
+            'updatetime': '2016-05-18 04:56:45 515792',
+            'user_count': 2,
+            'group_icon': 'http://127.0.0.1:8080/identicon/be625d18d0b96a0b2e2e26c95a4b59e1625348ab.png',
+            'uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+            'conversation_uuid': None,
+            'is_distributor': True,
+            'group_desc': 'a dancer club',
+            'group_name': 'Dancer Club',
+            'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+            'createtime': '2016-05-18 04:56:26 024830'
+        }
+    ],
+    'error_code': 0,
+    'uri': '/PP_GET_APP_ORG_GROUP_LIST',
+    'error_string': 'success.'
+}
 ```
+
+
+#### 获取客服组信息
+```
+POST /PP_GET_ORG_GROUP_DETAIL
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+
+返回结果（例子）
+```
+{
+    'group_route_algorithm': None,
+    'group_visible_order_for_ppcom': None,
+    'updatetime': datetime.datetime(2016, 5, 18, 4, 56, 45, 515792),
+    'uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+    'error_string': 'success.',
+    'conversation_uuid': None,
+    'createtime': datetime.datetime(2016, 5, 18, 4, 56, 26, 24830),
+    'is_distributor': True,
+    'uri': '/PP_GET_ORG_GROUP_DETAIL',
+    'group_desc': 'a dancer club',
+    'is_root': None,
+    'group_uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+    'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'group_work_time_str': None,
+    'group_name': 'Dancer Club',
+    'error_code': 0,
+    'group_icon': 'http://127.0.0.1:8080/identicon/be625d18d0b96a0b2e2e26c95a4b59e1625348ab.png',
+    'group_visible_for_ppcom': None
+}
+```
+
+
+#### 获取客服组的客服列表
+```
+POST /PP_GET_ORG_GROUP_USER_LIST
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+
+返回结果（例子）
+```
+{
+    'list': [
+        {
+            'updatetime': 1463547414,
+            'group': {
+                'uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+                'group_name': 'Dancer Club'
+            },
+            'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'user_fullname': 'Jin He',
+            'user_icon': '01a17ddc-1821-11e6-9b56-0242ac110003',
+            'is_browser_online': True,
+            'user_signature': 'fight to the death ~',
+            'is_mobile_online': False,
+            'user_email': 'jin.he@ppmessage.com'
+        },
+        {
+            'updatetime': 1463482387,
+            'group': {
+                'uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+                'group_name': 'Dancer Club'
+            },
+            'uuid': '89d63aee-1c1d-11e6-a4dd-0242ac110002',
+            'user_fullname': 'right',
+            'user_icon': None,
+            'is_browser_online': False,
+            'user_signature': None,
+            'is_mobile_online': False,
+            'user_email': 'right@ppmessage.com'
+        }
+    ],
+    'error_code': 0,
+    'uri': '/PP_GET_ORG_GROUP_USER_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 创建客服组
+```
+POST /PP_CREATE_ORG_GROUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_name**         | string    | 客服组名称
+**group_desc**         | string    | 客服组描述信息
+is_distributor         | boolean   | 是否设置为首选组
+
+返回结果（例子）
+```
+{
+    'group_visible_order_for_ppcom': None,
+    'group_desc': 'a music club',
+    'group_name': 'Music Club',
+    'is_root': None,
+    'group_work_time_str': None,
+    'group_visible_for_ppcom': None,
+    'group_route_algorithm': None,
+    'updatetime': datetime.datetime(2016, 5, 18, 6, 22, 1, 125540),
+    'uuid': 'd4c8c2bc-1cc0-11e6-b348-0242ac110002',
+    'error_string': 'success.',
+    'is_distributor': False,
+    'uri': '/PP_CREATE_ORG_GROUP',
+    'createtime': datetime.datetime(2016, 5, 18, 6, 22, 1, 125540),
+    'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'error_code': 0,
+    'group_icon': 'http://127.0.0.1:8080/identicon/d4c8c2bc-1cc0-11e6-b348-0242ac110002.png'
+}
+```
+
+
+#### 更新客服组
+```
+POST /PP_UPDATE_ORG_GROUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+group_name             | string    | 客服组名称
+group_desc             | string    | 客服组描述信息
+group_icon             | string    | 客服组头像
+is_distributor         | boolean   | 是否设置为首选组
+
+
+返回结果（例子）
+```
+{
+    'group_route_algorithm': None,
+    'group_visible_order_for_ppcom': None,
+    'updatetime': datetime.datetime(2016, 5, 18, 4, 56, 45, 515792),
+    'uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+    'error_string': 'success.',
+    'createtime': datetime.datetime(2016, 5, 18, 4, 56, 26, 24830),
+    'is_distributor': True,
+    'uri': '/PP_UPDATE_ORG_GROUP',
+    'group_desc': u'a dancer club',
+    'is_root': None,
+    'group_uuid': 'e00ab5b0-1cb4-11e6-9894-0242ac110002',
+    'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'group_work_time_str': None,
+    'group_name': u'Dancer Club',
+    'error_code': 0,
+    'group_icon': 'http://127.0.0.1:8080/identicon/be625d18d0b96a0b2e2e26c95a4b59e1625348ab.png',
+    'group_visible_for_ppcom': None
+}
+```
+
+
+#### 删除客服组 
+```
+POST /PP_REMOVE_ORG_GROUP
+```
+
+api_level:
+```
+PPCONOSLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_REMOVE_ORG_GROUP',
+    'error_string': 'success.'
+}
+```
+
+
+#### 添加客服组成员
+```
+POST /PP_ADD_ORG_GROUP_USER
+```
+
+api_level:
+```
+PPCONOSLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+**user_list**          | list      | 用户列表
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_ADD_ORG_GROUP_USER',
+    'error_string': 'success.'
+}
+```
+
+
+#### 移除客服组成员
+```
+POST /PP_REMOVE_ORG_GROUP_USER
+```
+
+api_level:
+```
+PPCONOSLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+**user_list**          | list      | 用户列表
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_REMOVE_ORG_GROUP_USER',
+    'error_string': 'success.'
+}
+```
+
+#### 获取客服团队中不归属任何客服组的客服列表
+```
+POST /PP_GET_NO_GROUP_USER_LIST
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONOSLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+**user_list**          | list      | 用户列表
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_ADD_ORG_GROUP_USER',
+    'error_string': 'success.'
+}
+```
+
+
+
 
 
 
