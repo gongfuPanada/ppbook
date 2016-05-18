@@ -467,6 +467,347 @@ Name                   | Type      | Description
 ```
 
 
+#### 获取用户的所有对话
+```
+POST /PP_GET_USER_CONVERSATION_LIST
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_uuid**          | string    | 用户uuid
+
+返回结果（例子）
+```
+{
+    'list': [],
+    'error_code': 0,
+    'uri': '/PP_GET_USER_CONVERSATION_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 开启对话
+一个对话的状态为`CLOSE`状态，当调用API接口获取对话列表时，这个对话总是会被忽略。要取消忽略，需要设置对话状态为`OPEN`，即开启对话。
+
+```
+POST /PP_OPEN_CONVERSATION
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_uuid**          | string    | 用户uuid
+**conversation_uuid**  | string    | 对话uuid
+
+返回结果（例子）
+```
+{
+    'uri': '/PP_OPEN_CONVERSATION',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 关闭对话
+一个对话的状态为`CLOSE`状态，当调用API接口获取对话列表时，这个对话总是会被忽略。要忽略对话，需要设置对话状态为`CLOSE`，即关闭对话。
+
+```
+POST /PP_CLOSE_CONVERSATION
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_uuid**          | string    | 用户uuid
+**conversation_uuid**  | string    | 对话uuid
+
+返回结果（例子）
+```
+{
+    'uri': '/PP_OPEN_CONVERSATION',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 获取客服团队信息
+```
+POST /PP_GET_APP_INFO
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'return_offline_message': None,
+    'app_name': 'ppmessage',
+    'app_secret': 'Mzg2ODliNjVlY2I2NzBlNTExMmJkMTE4YzM3MjRlMjUxN2U1MjEwMg==',
+    'robot_user_uuid': None,
+    'api_uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+    'robot_train_track': None,
+    'app_billing_email': None,
+    'uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'welcome_message': None,
+    'app_icon': None,
+    'ppcom_powered_by_visible': None,
+    'ppcom_powered_by_link': None,
+    'company_name': 'YOURUI',
+    'ppcom_launcher_style': None,
+    'ppcom_powered_by_name': None,
+    'robot_train_click': None,
+    'offline_message': None,
+    'app_key': 'NjZlZGNiMGEzOTg4NmNjYWQ2NDIxNDZiN2ZiZTljZTA1NTFiZjdlNw==',
+    'show_ppcom_hover': None,
+    'updatetime': datetime.datetime(2016, 5, 12, 3, 25, 1),
+    'app_route_policy': None,
+    'error_string': 'success.',
+    'robot_train_method': None,
+    'user_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+    'uri': '/PP_GET_APP_INFO',
+    'robot_train_chat': None,
+    'app_billing_uuid': None,
+    'error_code': 0,
+    'createtime': datetime.datetime(2016, 5, 12, 3, 25, 1),
+    'ppcom_launcher_color': None
+}
+```
+
+
+#### 获取客服团队下所有客服
+```
+POST /PP_GET_APP_SERVICE_USER_LIST
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'list': [
+        {
+            'updatetime': datetime.datetime(2016, 5, 18, 2, 36, 19, 726229),
+            'group': None,
+            'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'user_fullname': 'Jin He',
+            'user_icon': '01a17ddc-1821-11e6-9b56-0242ac110003',
+            'is_browser_online': True,
+            'user_signature': 'fight to the death ~',
+            u'is_owner_user': True,
+            'is_mobile_online': False,
+            u'is_distributor_user': True,
+            'user_email': 'jin.he@ppmessage.com',
+            u'is_service_user': True
+        },
+        {
+            'updatetime': datetime.datetime(2016, 5, 17, 10, 53, 7),
+            'group': None,
+            'uuid': '89d63aee-1c1d-11e6-a4dd-0242ac110002',
+            'user_fullname': 'right',
+            'user_icon': None,
+            'is_browser_online': False,
+            'user_signature': None,
+            u'is_owner_user': False,
+            'is_mobile_online': False,
+            u'is_distributor_user': True,
+            'user_email': 'right@ppmessage.com',
+            u'is_service_user': True
+        }
+    ],
+    'error_code': 0,
+    'uri': '/PP_GET_APP_SERVICE_USER_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 发送消息(待完善)
+```
+POST /PP_SEND_MESSAGE
+```
+
+api_level:
+```
+PPCOM, PPKEFU, THIRD_PARTY_KEFU
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'error_string': 'success.',
+    'uri': '/PP_SEND_MESSAGE'
+}
+```
+
+
+#### 获取用户uuid（需改名）
+检查服务器是否有某个email对应的用户，如果没有，则创建这个用户，并返回用户uuid；如果有这个用户并且这个用户是客服，则返回错误；如果有这个用户并且这个用户不是客服，则返回用户uuid。
+
+```
+POST /PP_GET_USER_UUID
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_email**         | string    | 用户邮箱
+user_icon              | string    | 用户头像，如果需要创建用户，会用到
+user_fullname          | string    | 用户全称，如果需要创建用户，会用到
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'error_string': 'success.',
+    'uri': '/PP_GET_USER_UUID',
+    'user_uuid': '1ca64836-17f1-11e6-9d01-0242ac110003'
+}
+```
+
+
+#### 获取对话历史消息
+获取对话中的历史消息，可以按页(`page_size, page_offset`)获取；也可以按照消息id范围(`since_id, max_id`)获取。
+```
+POST /PP_GET_HISTORY_MESSAGE
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**conversation_uuid**  | string    | 客服团队uuid
+**page_offset**        | string    | 第几页消息
+page_size              | string    | 一页消息的数目
+since_id               | string    | 最早一条历史消息的id
+max_id                 | string    | 最近一条历史消息的id
+
+
+返回结果（例子）
+```
+{
+   'error_code': 0,
+   'error_code': 'success.',
+   'uri': '/PP_GET_HISTORY_MESSAGE',
+   'total_count': 23,
+   'count': 12,
+   'page_size': 12,
+   'page_offset': 0,
+   'list': [
+       ...
+   ],
+   'max_id': 'xxxx'
+}
+```
+
+
+#### 获取用户信息
+```
+POST /PP_GET_USER_INFO
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_uuid**          | string    | 第几页消息
+
+
+返回结果（例子）
+```
+{
+...
+}
+```
+
+
+#### 获取客服团队的客服组列表
+```
+POST /PP_GET_APP_ORG_GROUP_LIST
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+
+```
 
 
 
