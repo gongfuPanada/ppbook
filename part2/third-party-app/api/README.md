@@ -1097,6 +1097,7 @@ Name                   | Type      | Description
 }
 ```
 
+
 #### 获取客服团队中不归属任何客服组的客服列表
 ```
 POST /PP_GET_NO_GROUP_USER_LIST
@@ -1112,17 +1113,640 @@ PPCOM, PPKEFU, PPCONOSLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
 Name                   | Type      | Description
 -----------------------|-----------|------------
 **app_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'list': [
+        {
+            'user_status': 'ADMIN',
+            'updatetime': '2016-05-18 04:56:54 905611',
+            'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'is_anonymous_user': 'False',
+            'user_lastname': 'He',
+            'user_password': '40bd001563085fc35165329ea1ff5c5ecbdbbeef',
+            'user_fullname': 'Jin He',
+            'service_user_status': 'READY',
+            'user_icon': '01a17ddc-1821-11e6-9b56-0242ac110003',
+            'user_signature': 'fight to the death ~',
+            'user_email': 'jin.he@ppmessage.com',
+            'browser_device_uuid': '68a2feca-1c1d-11e6-a4dd-0242ac110002',
+            'user_language': 'zh_cn',
+            'createtime': '2016-05-12 03:25:01 000000',
+            'latest_send_message_time': '2016-05-12 10:01:18 000000',
+            'user_firstname': 'Jin'
+        },
+        {
+            'user_status': 'SERVICE',
+            'updatetime': '2016-05-17 10:53:07 000000',
+            'uuid': '89d63aee-1c1d-11e6-a4dd-0242ac110002',
+            'is_anonymous_user': 'False',
+            'user_password': '40bd001563085fc35165329ea1ff5c5ecbdbbeef',
+            'user_fullname': 'right',
+            'user_name': 'right@ppmessage.com',
+            'createtime': '2016-05-17 10:53:07 000000',
+            'user_email': 'right@ppmessage.com'
+        },
+        {
+            'user_status': 'SERVICE',
+            'updatetime': '2016-05-18 08:15:16 552382',
+            'uuid': 'a7341f62-1cd0-11e6-950f-0242ac110002',
+            'is_anonymous_user': 'False',
+            'user_password': '40bd001563085fc35165329ea1ff5c5ecbdbbeef',
+            'user_fullname': 'gitar',
+            'user_name': 'gitar@ppmessage.com',
+            'createtime': '2016-05-18 08:15:16 552382',
+            'user_email': 'gitar@ppmessage.com'
+        }
+    ],
+    'error_code': 0,
+    'uri': '/PP_GET_NO_GROUP_USER_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 获取客服组的对话
+PPCom调用此API接口来获取某个客服组下，与当前PPCom用户关联的对话。
+```
+POST /PP_GET_ORG_GROUP_CONVERSATION
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
 **group_uuid**         | string    | 客服组uuid
-**user_list**          | list      | 用户列表
+**user_uuid**          | string    | 用户uuid，此用户是PPCom用户
+
+返回结果（例子）
+```
+{
+    'conversation_uuid': '68a2feca-1c1d-11e6-a4dd-0242ac110002',
+    'error_code': 0,
+    'uri': '/PP_GET_NO_GROUP_USER_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 更新对话成员
+```
+POST /PP_UPDATE_CONVERSATION_MEMBER
+```
+
+api_level:
+```
+PPCOM, PPKEFU, THIRD_PARTY_KEFU
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**conversation_uuid**  | string    | 用户uuid，此用户是PPCom用户
+group_uuid             | string    | 客服组uuid，设定此对话与那个客服组关联
+action                 | string    | 操作类型，添加为"ADD", 删除为"REMOVE"
+member_list            | list      | 需要添加或者删除的成员列表
 
 返回结果（例子）
 ```
 {
     'error_code': 0,
-    'uri': '/PP_ADD_ORG_GROUP_USER',
+    'error_string': 'success.',
+    'uri': '/PP_UPDATE_CONVERSATION_MEMBER'
+}
+```
+
+
+#### 获取默认对话
+PPCom调用此API来获取默认对话。
+```
+POST /PPCOM_GET_DEFAULT_CONVERSATION
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**user_uuid**          | string    | 用户uuid，此用户是PPCom用户
+**device_uuid**        | string    | 用户设备uuid，此用户是PPCom用户
+
+返回结果（例子）
+```
+{
+    'status': 'OPEN',
+    'conversation_type': 'P2S',
+    'app_name': 'ppmessage',
+    'latest_task': '771d934d-9629-46df-d635-380858dd114a',
+    'conversation_icon': 'http://127.0.0.1:8080/identicon/be625d18d0b96a0b2e2e26c95a4b59e1625348ab.png',
+    'group_uuid': None,
+    'updatetime': datetime.datetime(2016, 5, 18, 4, 43, 55, 628687),
+    'app_welcome': '\xe6\x9c\x89\xe4\xbb\x80\xe4\xb9\x88\xe5\x8f\xaf\xe4\xbb\xa5\xe5\xb8\xae\xe5\xbf\x99\xe7\x9a\x84\xef\xbc\x8c\xe4\xb8\x80\xe8\xb5\xb7\xe8\x81\x8a\xe4\xb8\xa4\xe5\x8f\xa5\xe5\x90\xa7\xef\xbc\x9f',
+    'uuid': '1efd668e-1cb3-11e6-93e2-0242ac110002',
+    'error_string': 'success.',
+    'user_uuid': '9adb1032-1cac-11e6-bce9-0242ac110002',
+    'uri': '/PPCOM_GET_DEFAULT_CONVERSATION',
+    'user_list': [
+        {
+            'updatetime': 1463563427,
+            'group': None,
+            'uuid': '9adb1032-1cac-11e6-bce9-0242ac110002',
+            'user_fullname': 'Unknown Area.User',
+            'user_icon': 'http://127.0.0.1:8080/identicon/9adb1032-1cac-11e6-bce9-0242ac110002.png',
+            'is_browser_online': False,
+            'user_signature': None,
+            'is_mobile_online': False,
+            'user_email': '9adb10@1ca35f'
+        },
+        {
+            'updatetime': 1463547414,
+            'group': None,
+            'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'user_fullname': 'Jin He',
+            'user_icon': '01a17ddc-1821-11e6-9b56-0242ac110003',
+            'is_browser_online': True,
+            'user_signature': 'fight to the death ~',
+            'is_mobile_online': False,
+            'user_email': 'jin.he@ppmessage.com'
+        },
+        {
+            'updatetime': 1463482387,
+            'group': None,
+            'uuid': '89d63aee-1c1d-11e6-a4dd-0242ac110002',
+            'user_fullname': 'right',
+            'user_icon': None,
+            'is_browser_online': False,
+            'user_signature': None,
+            'is_mobile_online': False,
+            'user_email': 'right@ppmessage.com'
+        }
+    ],
+    'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'conversation_name': 'Jin He,right',
+    'assigned_uuid': None,
+    'error_code': 0,
+    'createtime': datetime.datetime(2016, 5, 18, 4, 43, 52, 603049)
+}
+```
+
+
+#### 按组策略选择可加入到某个对话中的用户
+```
+POST /PP_SELECT_USERS_BY_GROUP_ALGORITHM
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+**group_uuid**         | string    | 客服组uuid
+**conversation_uuid**  | string    | 对话uuid
+
+返回结果（例子）
+```
+{
+    'list': [
+        '1ca235d4-17f1-11e6-9d01-0242ac110003',
+        '89d63aee-1c1d-11e6-a4dd-0242ac110002'
+    ],
+    'error_code': 0,
+    'uri': '/PP_SELECT_USERS_BY_GROUP_ALGORITHM',
     'error_string': 'success.'
 }
 ```
+
+#### 更新客服团队信息
+```
+POST /PP_UPDATE_APP_INFO
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                   | Type      | Description
+-----------------------|-----------|------------
+**app_uuid**           | string    | 客服团队uuid
+app_name               | string    | 客服团队名称
+app_icon               | string    | 客服团队头像
+app_route_policy       | string    | 客户团队消息分发策略, 可为"ALL", "SMART", "GROUP"
+welcome_message        | string    | PPCom显示的欢迎信息
+ppcom_launcher_color   | string    | PPCom图标颜色
+ppcom_launcher_style   | string    | PPCom图标样式
+
+返回结果（例子）
+```
+{
+    'return_offline_message': None,
+    'app_name': 'ppmessage123',
+    'robot_train_click': None,
+    'app_secret': 'Mzg2ODliNjVlY2I2NzBlNTExMmJkMTE4YzM3MjRlMjUxN2U1MjEwMg==',
+    'robot_user_uuid': None,
+    'app_key': 'NjZlZGNiMGEzOTg4NmNjYWQ2NDIxNDZiN2ZiZTljZTA1NTFiZjdlNw==',
+    'ppcom_powered_by_visible': None,
+    'robot_train_method': None,
+    'api_uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+    'ppcom_launcher_style': None,
+    'robot_train_track': None,
+    'show_ppcom_hover': None,
+    'ppcom_powered_by_name': None,
+    'app_billing_email': None,
+    'updatetime': datetime.datetime(2016, 5, 18, 9, 57, 22, 455405),
+    'app_route_policy': None,
+    'uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'error_string': 'success.',
+    'welcome_message': None,
+    'user_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+    'app_icon': None,
+    'uri': '/PP_UPDATE_APP_INFO',
+    'createtime': datetime.datetime(2016, 5, 12, 3, 25, 1),
+    'ppcom_powered_by_link': None,
+    'robot_train_chat': None,
+    'company_name': 'YOURUI',
+    'app_billing_uuid': None,
+    'error_code': 0,
+    'offline_message': None,
+    'ppcom_launcher_color': None
+}
+```
+
+
+#### 获取某用户拥有的客服团队
+```
+POST /PP_GET_APP_OWNED_BY_USER
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'app': {
+        'return_offline_message': None,
+        'app_name': 'ppmessage123',
+        'app_secret': 'Mzg2ODliNjVlY2I2NzBlNTExMmJkMTE4YzM3MjRlMjUxN2U1MjEwMg==',
+        'robot_user_uuid': None,
+        'api_uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+        'robot_train_track': None,
+        'app_billing_email': None,
+        'uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+        'welcome_message': None,
+        'robot_train_click': None,
+        'ppcom_powered_by_visible': None,
+        'ppcom_powered_by_link': None,
+        'company_name': 'YOURUI',
+        'ppcom_launcher_style': None,
+        'ppcom_powered_by_name': None,
+        'app_icon': None,
+        'offline_message': None,
+        'app_key': 'NjZlZGNiMGEzOTg4NmNjYWQ2NDIxNDZiN2ZiZTljZTA1NTFiZjdlNw==',
+        'show_ppcom_hover': None,
+        'updatetime': datetime.datetime(2016, 5, 18, 9, 57, 22, 455405),
+        'app_route_policy': None,
+        'robot_train_method': None,
+        'robot_train_chat': None,
+        'app_billing_uuid': None,
+        'user_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+        'createtime': datetime.datetime(2016, 5, 12, 3, 25, 1),
+        'ppcom_launcher_color': None
+    },
+    'bill': None,
+    'error_code': 0,
+    'uri': '/PP_GET_APP_OWNED_BY_USER',
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 创建客服团队
+```
+POST /PP_CREATE_APP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 用户uuid，用户是客服团队的创建者，同时也是管理员
+**app_name**            | string    | 客服团队名称
+
+返回结果（例子）
+```
+{
+    'uri': '/PP_CREATE_APP',
+    'error_code': 0,
+    'error_string': 'success.',
+    'uuid': '82baa504-1ce2-11e6-b4ca-0242ac110002',
+    'app_name': 'nodejs',
+    'app_billing_email': 'nodejs@ppmessage.com',
+    'app_key': '82baa324-1ce2-11e6-b4ca-0242ac110002',
+    'app_secret': '82baa464-1ce2-11e6-b4ca-0242ac110002',
+    'app_route_policy': 'BROADCAST'
+}
+```
+
+
+#### 将客服移出客服团队
+```
+POST /PP_LEAVE_APP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**user_list**           | list      | 要移除的客服列表
+
+返回结果（例子）
+```
+{
+    'uri': '/PP_LEAVE_APP',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证邮箱是否有效
+```
+POST /PP_IS_EMAIL_VALID
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'uri': '/PP_IS_EMAIL_VALID',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
