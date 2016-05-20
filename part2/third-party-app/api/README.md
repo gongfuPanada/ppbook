@@ -160,7 +160,7 @@ Name                   | Type      | Description
 **device_ostype**      | string    | 设备操作系统类型
 **ppcom_trace_uuid**   | string    | PPCom在浏览器端标示用户的uuid
 
-说明 
+说明
 ```
 "AND", # ANDROID
 "IOS", # IOS
@@ -1015,7 +1015,7 @@ is_distributor         | boolean   | 是否设置为首选组
 ```
 
 
-#### 删除客服组 
+#### 删除客服组
 ```
 POST /PP_REMOVE_ORG_GROUP
 ```
@@ -1661,7 +1661,7 @@ max_uuid                | string    | 最新一个对话的uuid，按uuid范围�
             'status': 'OPEN',
             'conversation_type': 'P2S',
             'updatetime': '2016-05-18 04:43:55 628687',
-            'uuid': '1efd668e-1cb3-11e6-93e2-0242ac110002', 
+            'uuid': '1efd668e-1cb3-11e6-93e2-0242ac110002',
             'latest_message': {
                 'message_body': '{
                     "ci": "1efd668e-1cb3-11e6-93e2-0242ac110002",
@@ -1714,7 +1714,7 @@ max_uuid                | string    | 最新一个对话的uuid，按uuid范围�
     'error_string': 'success.',
     'max_uuid': None,
     'total_count': 1,
-    'uri': '/PP_PAGE_USER_CONVERSATION', 
+    'uri': '/PP_PAGE_USER_CONVERSATION',
     'page_size': 15,
     'min_uuid': None,
     'page_offset': 0,
@@ -1880,7 +1880,7 @@ ios_app_development     | string    | iOS APP是否处于开发模式
     'user_wechat': None,
     'mobile_device_uuid': None,
     'user_company': None,
-    'user_status': 'ADMIN', 
+    'user_status': 'ADMIN',
     'ppcom_browser_device_uuid': None,
     'mqtt_topic': '68a2feca-1c1d-11e6-a4dd-0242ac110002/#',
     'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
@@ -1940,6 +1940,955 @@ Name                    | Type      | Description
 ```
 {
     'uri': '/PPKEFU_LOGOUT',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+#### 获取用户详细信息
+```
+POST /PP_GET_USER_DETAIL
+```
+
+api_level:
+```
+PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 用户uuid
+return_password         | boolean   | 是否返回用户密码
+
+返回结果（例子）
+```
+{
+    'user_firstname': 'Jin',
+    'user_language': 'zh_cn',
+    'create_status': None,
+    'user_wechat': None,
+    'mobile_device_uuid': None,
+    'user_company': None,
+    'user_status': 'ADMIN',
+    'ppcom_browser_device_uuid': None,
+    'uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+    'user_lastname': 'He',
+    'user_qq': None,
+    'user_icon': '01a17ddc-1821-11e6-9b56-0242ac110003',
+    'user_defined': None,
+    'user_mobile': None,
+    'user_signature': 'fight to the death ~',
+    'is_email_verified': None,
+    'browser_device_uuid': '68a2feca-1c1d-11e6-a4dd-0242ac110002',
+    'pinyinname1': u'Jin He',
+    'user_name': None,
+    'pinyinname0': u'Jin He',
+    'is_anonymous_user': False,
+    'service_user_status': 'READY',
+    'ppcom_trace_uuid': None,
+    'user_show_badge': None,
+    'user_mute_other_mobile_device': None,
+    'latest_send_message_time': datetime.datetime(2016, 5, 18, 11, 17, 23),
+    'updatetime': datetime.datetime(2016, 5, 18, 11, 34, 23),
+    'user_silence_notification': None,
+    'is_mobile_verified': None,
+    'error_string': 'success.',
+    'user_fullname': 'Jin He',
+    'uri': '/PP_GET_USER_DETAIL',
+    'ppcom_mobile_device_uuid': None,
+    'user_mute_notification': None,
+    'error_code': 0,
+    'createtime': datetime.datetime(2016, 5, 12, 3, 25, 1),
+    'user_email': 'jin.he@ppmessage.com'
+}
+```
+
+#### PPConsole客服管理员退出登录
+```
+POST /PPCONSOLE_LOGOUT
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 用户uuid
+
+返回结果（例子）
+```
+{
+    'uri': '/PPCONSOLE_LOGOUT',
+    'error_code': 0,
+    'error_string': 'success.'
+}
+```
+
+
+#### PPConsole客服注册
+注册时会同时创建客服团队。
+
+```
+POST /PPCONSOLE_SIGNUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE, PPCONSOLE_BEFORE_LOGIN
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**app_name**            | string    | 客服团队名称
+**user_email**          | string    | 用户登录邮箱
+**user_fullname**       | string    | 用户全称
+**user_password**       | string    | 用户密码
+
+返回结果（例子）
+```
+{
+    'app': {
+        'app_billing_email': 'cordova@ppmessage.com',
+        'app_route_policy': 'BROADCAST',
+        'uuid': '10f2cf8e-1e39-11e6-8cec-0242ac110002',
+        'app_secret': '10f2ce12-1e39-11e6-8cec-0242ac110002',
+        'app_key': '10f2c5fc-1e39-11e6-8cec-0242ac110002',
+        'user_uuid': '10f23592-1e39-11e6-8cec-0242ac110002',
+        'app_name': u'cordova'
+    },
+    'error_code': 0,
+    'uri': '/PPCONSOLE_SIGNUP',
+    'error_string': 'success.',
+    'user': {
+        'user_status': 'OWNER_2',
+        'is_anonymous_user': False,
+        'uuid': '10f23592-1e39-11e6-8cec-0242ac110002',
+        'user_language': u'English',
+        'user_password': u'40bd001563085fc35165329ea1ff5c5ecbdbbeef',
+        'user_fullname': u'cordova',
+        'user_name': u'cordova@ppmessage.com',
+        'user_email': u'cordova@ppmessage.com'
+    }
+}
+```
+
+
+#### PPConsole获取用户数目、消息数目
+包括今日用户数，昨日用户数，所有用户数，所有消息数。
+```
+POST /PPCONSOLE_GET_OVERVIEW_NUMBER
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_OVERVIEW_NUMBER',
+    'error_string': 'success.',
+    'number': {
+        'today_customer': 2,
+        'all_customer': 9,
+        'all_message': '10',
+        'yesterday_customer': 0,
+        'agent': 3
+    }
+}
+```
+
+
+#### PPConsole获取实时用户数目
+```
+POST /PPCONSOLE_GET_REAL_TIME_CUSTOMER_NUMBER
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_REAL_TIME_CUSTOMER_NUMBER',
+    'error_string': 'success.',
+    'number': [
+        {'0': 0}, {'1': 0}, {'2': 0}, {'3': 2}, {'4': 0}, {'5': 0},
+        {'6': 0}, {'7': 0}, {'8': 0}, {'9': 0}, {'10': 0}, {'11': 0},
+        {'12': 0}, {'13': 0}, {'14': 0}, {'15': 0}, {'16': 0}, {'17': 0},
+        {'18': 0}, {'19': 0}, {'20': 0}, {'21': 0}, {'22': 0}, {'23': 0}
+    ]
+}
+```
+
+
+#### PPConsole获取实时消息数目
+```
+POST /PPCONSOLE_GET_REAL_TIME_SERVICE_NUMBER
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_REAL_TIME_SERVICE_NUMBER',
+    'error_string': 'success.',
+    'number': [
+        {'0': 0}, {'1': 0}, {'2': 0}, {'3': 0}, {'4': 0}, {'5': 0},
+        {'6': 0}, {'7': 0}, {'8': 0}, {'9': 0}, {'10': 0}, {'11': 0},
+        {'12': 0}, {'13': 0}, {'14': 0}, {'15': 0}, {'16': 0}, {'17': 0},
+        {'18': 0}, {'19': 0}, {'20': 0}, {'21': 0}, {'22': 0}, {'23': 0}
+    ]
+}
+```
+
+
+#### PPConsole获取实时消息数目
+```
+POST /PPCONSOLE_GET_REAL_TIME_MESSAGE_NUMBER
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_REAL_TIME_MESSAGE_NUMBER',
+    'error_string': 'success.',
+    'number': [
+        {'0': None}, {'1': None}, {'2': None}, {'3': None}, {'4': None}, {'5': None},
+        {'6': None}, {'7': None}, {'8': None}, {'9': None}, {'10': None}, {'11': None},
+        {'12': None}, {'13': None}, {'14': None}, {'15': None}, {'16': None}, {'17': None},
+        {'18': None}, {'19': None}, {'20': None}, {'21': None}, {'22': None}, {'23': None}
+    ]
+}
+```
+
+
+#### PPConsole获取某段日期内每天的用户数目
+```
+POST /PPCONSOLE_GET_CUSTOMER_NUMBER_BY_RANGE"
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_CUSTOMER_NUMBER_BY_RANGE',
+    'error_string': 'success.',
+    'number': {
+        '2016-05-19': 0, '2016-05-18': 0, '2016-05-17': 0, '2016-05-16': 0, '2016-05-15': 0, '2016-05-14': 0,
+        '2016-05-13': 0, '2016-05-12': 0, '2016-05-11': 0, '2016-05-10': 0, '2016-04-29': 0, '2016-04-28': 0,
+        '2016-04-21': 0, '2016-04-20': 0, '2016-04-23': 0, '2016-04-22': 0, '2016-04-25': 0, '2016-04-24': 0,
+        '2016-04-27': 0, '2016-04-26': 0, '2016-05-08': 0, '2016-05-09': 0, '2016-05-01': 0, '2016-05-02': 0,
+        '2016-05-03': 0, '2016-05-04': 0, '2016-05-05': 0, '2016-05-06': 0, '2016-05-07': 0, '2016-05-20': 2,
+        '2016-04-30': 0
+    }
+}
+```
+
+
+#### PPConsole获取某段时期内每天的客服数目
+```
+POST /PPCONSOLE_GET_SERVICE_NUMBER_BY_RANGE"
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_SERVICE_NUMBER_BY_RANGE',
+    'error_string': 'success.',
+    'number': {
+        '2016-05-19': 0, '2016-05-18': 0, '2016-05-17': 0, '2016-05-16': 0, '2016-05-15': 0, '2016-05-14': 0,
+        '2016-05-13': 0, '2016-05-12': 0, '2016-05-11': 0, '2016-05-10': 0, '2016-04-29': 0, '2016-04-28': 0,
+        '2016-04-21': 0, '2016-04-20': 0, '2016-04-23': 0, '2016-04-22': 0, '2016-04-25': 0, '2016-04-24': 0,
+        '2016-04-27': 0, '2016-04-26': 0, '2016-05-08': 0, '2016-05-09': 0, '2016-05-01': 0, '2016-05-02': 0,
+        '2016-05-03': 0, '2016-05-04': 0, '2016-05-05': 0, '2016-05-06': 0, '2016-05-07': 0, '2016-05-20': 2,
+        '2016-04-30': 0
+    }
+}
+```
+
+
+#### PPConsole获取某段日期内每天的消息数目
+```
+POST /PPCONSOLE_GET_MESSAGE_NUMBER_BY_RANGE"
+```
+
+api_level:
+```
+PPCONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_GET_MESSAGE_NUMBER_BY_RANGE',
+    'error_string': 'success.',
+    'number': {
+        '2016-05-19': 0, '2016-05-18': 0, '2016-05-17': 0, '2016-05-16': 0, '2016-05-15': 0, '2016-05-14': 0,
+        '2016-05-13': 0, '2016-05-12': 0, '2016-05-11': 0, '2016-05-10': 0, '2016-04-29': 0, '2016-04-28': 0,
+        '2016-04-21': 0, '2016-04-20': 0, '2016-04-23': 0, '2016-04-22': 0, '2016-04-25': 0, '2016-04-24': 0,
+        '2016-04-27': 0, '2016-04-26': 0, '2016-05-08': 0, '2016-05-09': 0, '2016-05-01': 0, '2016-05-02': 0,
+        '2016-05-03': 0, '2016-05-04': 0, '2016-05-05': 0, '2016-05-06': 0, '2016-05-07': 0, '2016-05-20': 2,
+        '2016-04-30': 0
+    }
+}
+```
+
+
+#### 获取客服团队的第三方应用api信息
+包括ppkefu_thirdparty 和 ppconsole_thirdparty 信息(api_key, api_secret, api_uuid, api_level)
+```
+POST /PP_GET_API_INFO
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**user_uuid**           | string    | 用户uuid
+
+返回结果（例子）
+```
+{
+    'ppconsole_thirdparty': {
+        'api_secret': u'NTg1YzUzMGE0MDk2ODA2MzUxOGNjMmE1YzczNGViYzg5ZjNhNmIwZg==',
+        'api_key': u'ZjU4YzUzYmIzOTI0YWEwMjQ5YmE2ZGEyNzM1MWFiMWQ0OTRjOWViZQ==',
+        'api_level': u'THIRD_PARTY_CONSOLE',
+        'api_uuid': u'1ca75fc8-17f1-11e6-9d01-0242ac110003'
+    },
+    'error_code': 0,
+    'uri': '/PP_GET_API_INFO',
+    'error_string': 'success.',
+    'ppkefu_thirdparty': {
+        'api_secret': u'ZGVlNmY4NWI1MWJkMzc1NjlkZTJmNWRkYWMxZTZlMjlhOTNkNGY4Yw==',
+        'api_key': u'Yzk4ZGNhNjFmYjJiNTgwM2RjNTg1YmQ4MWJkZDUxOGM0YmVmODhjNA==',
+        'api_level': u'THIRD_PARTY_KEFU',
+        'api_uuid': u'1ca6e7aa-17f1-11e6-9d01-0242ac110003'
+    }
+}
+```
+
+
+#### 获取所有客服团队列表
+超级管理员可以调用此API接口获取所有客服团队的列表。
+```
+POST /PP_GET_ALL_APP_LIST
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 用户uuid
+
+返回结果（例子）
+```
+{
+    'app': [
+        {
+            'updatetime': '2016-05-18 09:57:22 000000',
+            'uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+            'app_secret': 'Mzg2ODliNjVlY2I2NzBlNTExMmJkMTE4YzM3MjRlMjUxN2U1MjEwMg==',
+            'app_key': 'NjZlZGNiMGEzOTg4NmNjYWQ2NDIxNDZiN2ZiZTljZTA1NTFiZjdlNw==',
+            'company_name': 'YOURUI',
+            'api_uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+            'user_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'createtime': '2016-05-12 03:25:01 000000',
+            'app_name': 'ppmessage123'
+        },
+        {
+            'app_billing_email': 'nodejs@ppmessage.com',
+            'updatetime': '2016-05-18 10:23:09 000000',
+            'app_route_policy': 'BROADCAST',
+            'uuid': '82baa504-1ce2-11e6-b4ca-0242ac110002',
+            'app_secret': '82baa464-1ce2-11e6-b4ca-0242ac110002',
+            'app_key': '82baa324-1ce2-11e6-b4ca-0242ac110002',
+            'user_uuid': '82b514ea-1ce2-11e6-b4ca-0242ac110002',
+            'createtime': '2016-05-18 10:23:09 000000',
+            'app_name': 'nodejs'
+        },
+        {
+            'app_billing_email': 'cordova@ppmessage.com',
+            'updatetime': '2016-05-20 03:15:12 770747',
+            'app_route_policy': 'BROADCAST',
+            'uuid': '10f2cf8e-1e39-11e6-8cec-0242ac110002',
+            'app_secret': '10f2ce12-1e39-11e6-8cec-0242ac110002',
+            'app_key': '10f2c5fc-1e39-11e6-8cec-0242ac110002',
+            'user_uuid': '10f23592-1e39-11e6-8cec-0242ac110002',
+            'createtime': '2016-05-20 03:15:12 770747',
+            'app_name': 'cordova'
+        },
+        {
+            'app_billing_email': 'dancer@ppmessage.com',
+            'updatetime': '2016-05-17 09:16:34 000000',
+            'app_route_policy': 'BROADCAST',
+            'uuid': '0b4693e8-1c10-11e6-b5ef-0242ac110002',
+            'app_secret': '0b46933e-1c10-11e6-b5ef-0242ac110002',
+            'app_key': '0b469212-1c10-11e6-b5ef-0242ac110002',
+            'user_uuid': '0b4629f8-1c10-11e6-b5ef-0242ac110002',
+            'createtime': '2016-05-17 09:16:34 000000',
+            'app_name': 'dancer-team'
+        }
+    ],
+    'error_code': 0,
+    'uri': '/PP_GET_ALL_APP_LIST',
+    'error_string': 'success.'
+}
+```
+
+
+#### 验证某设备是否在线
+```
+POST /PP_VALIDATE_ONLINE_DEVICE
+```
+
+api_level:
+```
+PPKEFU, THIRD_PARTY_KEFU
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_uuid**           | string    | 用户uuid
+**device_uuid**         | string    | 设备uuid
+
+返回结果（例子）
+```
+{
+    'valid': False,
+    'error_code': 0,
+    'error_string': 'success.',
+    'uri': '/PP_VALIDATE_ONLINE_DEVICE'
+}
+```
+
+
+#### 设置客服状态
+```
+POST /PPKEFU_SET_SERVICE_USER_STATUS
+```
+
+api_level:
+```
+PPKEFU, THIRD_PARTY_KEFU
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**user_uuid**           | string    | 用户uuid
+**user_status**         | string    | 用户状态
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'error_string': 'success.',
+    'uri': '/PP_SET_SERVICE_USER_STATUS',
+}
+```
+
+
+#### 获取客服团队下所有预定义问答
+预定义问答即事先设置好某个问题的答案。
+```
+POST /PP_GET_ALL_PREDEFINED_SCRIPT
+```
+
+api_level:
+```
+PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_GET_ALL_PREDEFINED_SCRIPT',
+    'error_string': 'success.',
+    'list': [
+        '0b469212-1c10-11e6-b5ef-0242ac110002',
+        '0b4629f8-1c10-11e6-b5ef-0242ac110002'
+    ]
+}
+```
+
+
+#### 获取客服团队下所有预定义问答组
+预定义问答即事先设置好某个问题的答案，一个问答组包括数个预定义问答。
+```
+POST /PP_GET_ALL_PREDEFINED_SCRIPT_GROUP
+```
+
+api_level:
+```
+PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_GET_ALL_PREDEFINED_SCRIPT_GROUP',
+    'error_string': 'success.',
+    'list': [
+        {
+            'uuid': '10f2c5fc-1e39-11e6-8cec-0242ac110002',
+            'app_uuid': '10f2cf8e-1e39-11e6-8cec-0242ac110002',
+            'group_name': 'install instruction',
+            'createtime': '2016-05-17 09:16:34 000000',
+            'updatetime': '2016-05-17 09:16:34 000000'
+        }
+    ]
+}
+```
+
+
+#### 获取客服团队某个问答组的所有预定义问答
+预定义问答即事先设置好某个问题的答案。一个问答组包括数个预定义问答。
+```
+POST /PP_GET_PREDEFINED_SCRIPT_WITH_GROUP
+```
+
+api_level:
+```
+PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**group_uuid**          | string    | 问答组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_GET_PREDEFINED_SCRIPT_WITH_GROUP',
+    'error_string': 'success.',
+    'list': [
+        {
+            'uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+            'app_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+            'group_uuid': '82baa464-1ce2-11e6-b4ca-0242ac110002',
+            'script_question': 'is PPMessage an open source project ?',
+            'script_answer': 'Yes, it is.'
+        }
+    ]
+}
+```
+
+
+#### 添加预定义问答
+预定义问答即事先设置好某个问题的答案。
+```
+POST /PP_ADD_PREDEFINED_SCRIPT
+```
+
+api_level:
+```
+PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+group_uuid              | string    | 问答组uuid
+script_question         | string    | 预定义问答的问题
+**script_answer**       | string    | 预定义问答的答案
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_ADD_PREDEFINED_SCRIPT',
+    'error_string': 'success.',
+    'uuid': '1ca64836-17f1-11e6-9d01-0242ac110003',
+    'app_uuid': '1ca235d4-17f1-11e6-9d01-0242ac110003',
+    'group_uuid': '82baa464-1ce2-11e6-b4ca-0242ac110002',
+    'script_question': 'is PPMessage an open source project ?',
+    'script_answer': 'Yes, it is.'
+}
+```
+
+
+#### 删除预定义问答
+预定义问答即事先设置好某个问题的答案。
+```
+POST /PP_REMOVE_PREDEFINED_SCRIPT
+```
+
+api_level:
+```
+PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**script_uuid**         | string    | 问答uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_REMOVE_PREDEFINED_SCRIPT',
+    'error_string': 'success.',
+}
+```
+
+
+#### 添加预定义问答组
+预定义问答即事先设置好某个问题的答案，一个问答组包括数个预定义问答。
+```
+POST /PP_ADD_PREDEFINED_SCRIPT_GROUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**group_name**          | string    | 问答组名称
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_ADD_PREDEFINED_SCRIPT_GROUP',
+    'error_string': 'success.',
+    'uuid': '10f2c5fc-1e39-11e6-8cec-0242ac110002',
+    'app_uuid': '10f2cf8e-1e39-11e6-8cec-0242ac110002',
+    'group_name': 'install instruction',
+    'createtime': '2016-05-17 09:16:34 000000',
+    'updatetime': '2016-05-17 09:16:34 000000'
+}
+```
+
+
+#### 删除预定义问答组
+预定义问答即事先设置好某个问题的答案，一个问答组包括数个预定义问答。
+```
+POST /PP_REMOVE_PREDEFINED_SCRIPT_GROUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**group_uuid**          | string    | 问答组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_REMOVE_PREDEFINED_SCRIPT_GROUP',
+    'error_string': 'success.',
+}
+```
+
+
+#### 添加预定义问答到某个问答组
+```
+POST /PP_MOVE_PREDEFINED_SCRIPT_INTO_GROUP
+```
+
+api_level:
+```
+PPCONSOLE, THIRD_PARTY_CONSOLE
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**group_uuid**          | string    | 问答组uuid
+**script_uuid**         | string    | 问答uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_MOVE_PREDEFINED_SCRIPT_INTO_GROUP',
+    'error_string': 'success.',
+}
+```
+
+
+#### 发送修改密码邮件
+当用户在登录PPConsole前，修改了密码，调用此接口用邮件通知他。
+```
+POST /PPCONSOLE_SEND_NEW_PASSWORD
+```
+
+api_level:
+```
+PPCONSOLE_BEFORE_LOGIN
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 问答组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_SEND_NEW_PASSWORD',
+    'error_string': 'success.',
+}
+```
+
+
+#### 发送修改密码邮件
+当用户在登录PPConsole前，修改了密码，调用此接口用邮件通知他。
+```
+POST /PPCONSOLE_SEND_NEW_PASSWORD
+```
+
+api_level:
+```
+PPCONSOLE_BEFORE_LOGIN
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**user_email**          | string    | 问答组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PPCONSOLE_SEND_NEW_PASSWORD',
+    'error_string': 'success.',
+}
+```
+
+
+#### 取消等待创建对话
+PPCom在等待后台创建对话过程中，可以调用此接口取消等待。
+```
+POST /PP_CANCEL_WAITING_CREATE_CONVERSATION
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**user_uuid**           | string    | 用户uuid
+**device_uuid**         | string    | 设备uuid
+group_uuid              | string    | 对话对应的客服组uuid
+
+返回结果（例子）
+```
+{
+    'error_code': 0,
+    'uri': '/PP_CANCEL_WAITING_CREATE_CONVERSATION',
+    'error_string': 'success.',
+}
+```
+
+
+#### PPCom创建对话
+客服团队的消息分配策略不同，PPCom创建对话的方式也不同。
+```
+POST /PPCOM_CREATE_CONVERSATION
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+**user_uuid**           | string    | 用户uuid
+**device_uuid**         | string    | 设备uuid
+group_uuid              | string    | 客服组uuid
+member_list             | list      | 对话成员uuid列表
+
+返回结果（例子）
+```
+{
+    'status': 'NEW',
+    'conversation_type': 'P2S',
+    'uuid': 'a3e0da04-1e69-11e6-bcf2-0242ac110002',
+    'error_string': 'success.',
+    'latest_task': None,
+    'user_uuid': '9adb1032-1cac-11e6-bce9-0242ac110002',
+    'uri': '/PPCOM_CREATE_CONVERSATION',
+    'group_uuid': None,
+    'conversation_icon': None,
+    'app_uuid': '1ca35f40-17f1-11e6-9d01-0242ac110003',
+    'conversation_name': 'right@ppmessage.com',
+    'assigned_uuid': '89d63aee-1c1d-11e6-a4dd-0242ac110002',
+    'error_code': 0,
+    'updatetime': datetime.datetime(2016, 5, 20, 9, 2, 55, 134858),
+    'createtime': datetime.datetime(2016, 5, 20, 9, 2, 55, 134858)
+}
+```
+
+
+#### PPCom获取正在等待创建对话的PPCom用户数
+
+```
+POST /PP_GET_AMD_QUEUE_LENGTH
+```
+
+api_level:
+```
+PPCOM
+```
+
+参数
+
+Name                    | Type      | Description
+------------------------|-----------|------------
+**app_uuid**            | string    | 客服团队uuid
+
+
+返回结果（例子）
+```
+{
+    'length': 10,
+    'uri': '/PPCOM_CREATE_CONVERSATION',
     'error_code': 0,
     'error_string': 'success.'
 }
