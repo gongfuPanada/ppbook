@@ -4,6 +4,7 @@
 ```
 POST https://ppmessage.com/api/xxxxx
 ```
+
 `https header`应为(`xxxx`应该用`token`替代)：
 ```
 {
@@ -22,6 +23,8 @@ api_level                 | Description
 `THIRD_PARTY_KEFU`        | 用THIRD_PARTY_KEFU的api_key, api_secret获取的token，可以调用此级别的API
 `THIRD_PARTY_CONSOLE`     | 用THIRD_PARTY_CONSOLE的api_key, api_secret获取的token，可以调用此级别的API
 `PPCONSOLE_BEFORE_LOGIN`  | 用PPCONSOLE_BEFORE_LOGIN的api_key, api_secret获取的token，可以调用此级别的API
+
+---
 
 #### 创建匿名用户
 ```
