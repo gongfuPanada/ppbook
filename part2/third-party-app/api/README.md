@@ -1,13 +1,27 @@
 # API 列表
 
 调用API的格式为
-
 ```
-https://ppmessage.com/api/xxxxx
+POST https://ppmessage.com/api/xxxxx
+```
+`https header`应为(`xxxx`应该用`token`替代)：
+```
+{
+    'Content-Type': 'application/json',
+    'Authorization': 'OAuth xxxxx'
+}
 ```
 
-`api_level`：获取到的`token`有固定的`api level`，使用该`token`只用调用该`api_level`对应的`API`接口。
+`api_level`：获取到的`token`有固定的`api level`，使用该`token`只用调用该`api_level`对应的`API`接口。`api_level`有以下几种。
 
+api_level                 | Description
+--------------------------|-------------
+`PPCOM`                   | 用PPCOM的api_key, api_secret获取的token，可以调用此级别的API
+`PPKEFU`                  | 用PPKEFU的api_key, api_secret获取的token，可以调用此级别的API
+`PPCONSOLE`               | 用PPCONSOLE的api_key, api_secret获取的token，可以调用此级别的API
+`THIRD_PARTY_KEFU`        | 用THIRD_PARTY_KEFU的api_key, api_secret获取的token，可以调用此级别的API
+`THIRD_PARTY_CONSOLE`     | 用THIRD_PARTY_CONSOLE的api_key, api_secret获取的token，可以调用此级别的API
+`PPCONSOLE_BEFORE_LOGIN`  | 用PPCONSOLE_BEFORE_LOGIN的api_key, api_secret获取的token，可以调用此级别的API
 
 #### 创建匿名用户
 ```
