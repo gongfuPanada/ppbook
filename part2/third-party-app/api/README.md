@@ -1,6 +1,6 @@
 # API 列表
 
-调用API的格式为
+调用API:
 ```
 POST https://ppmessage.com/api/xxxxx
 ```

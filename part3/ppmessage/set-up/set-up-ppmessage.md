@@ -113,9 +113,14 @@ ppmessage/scripts/download_geolite2.sh
 
 例子：
 
-    PPKefu: http://192.168.0.52:8080/ppkfu
+    PPKefu: http://192.168.0.52:8080/ppkefu
     PPConsole: http://192.168.0.52:8080
 
+可能出现的错误：
+
+* 登录、注册时，出现ppauth 400 error
+  
+  解决办法：先更新PPMessage源码（`git pull`），然后执行`./dist.sh gulp`，最后清空浏览器缓存。
 
 其他命令列举如下：
 

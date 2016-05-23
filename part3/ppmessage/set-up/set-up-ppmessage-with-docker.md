@@ -154,6 +154,11 @@ docker run -it -p 8080:8080 -v ~/Documents/ppmessage:/ppmessage ppmessage/ppmess
 
     这会给出`Docker`虚拟机的 IP 地址，例如IP是 `192.168.99.100`。
 
+可能出现的错误：
+
+* 登录、注册时，出现ppauth 400 error
+  
+  解决办法：先更新PPMessage源码（`git pull`），然后执行`./dist.sh gulp`，最后清空浏览器缓存。
 
 #### 关闭、重新启动 PPMessage
 通过`docker run`启动`PPMessage`总是会新建一个`Docker`容器，然后在新容器中初始化并运行 `PPMessage`。
