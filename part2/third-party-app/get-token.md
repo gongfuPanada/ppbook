@@ -23,12 +23,39 @@ GET https://ppmessage.com/ppauth/auth?state=xxxx&client_id=xxxx&redirect_id=xxxx
 
 返回结果：
 
-成功获取授权码后，`PPMessage`服务器会把用户导向`PPMessage`的 **应用授权** 页面，并附上授权码。
+成功获取授权码后，`PPMessage`服务器会把用户导向`PPMessage`的 **应用授权** 页面。
 
+在**应用授权**页面，用户输入他的邮箱和密码，然后点击继续按钮。如果邮箱和密码匹配，PPMessage服务器会将用户导向你指定的`redirect_uri`，并带上授权码和`state`。
 
-### 获取token
+最终的uri格式：
+```
+http://you-site.com?code=xxxxxx&state=xxxx
+```
 
-用户在`PPMessage`的 **应用授权** 页面，填入登录邮箱和密码，点击确认。如果邮箱和密码正确的话，`PPMessage`服务器会将用户导向上一步的重定向`URI`（即`redirect_uri`），并附上`token`。
+### 获取 Token
+
+PPMessage服务器将用户导向你的`redirect_uri`后，你能从这个uri里获取到`authorization code`和`state`。
+
+`state`应该和你上一步提供的`state`一致。
+
+现在你可以通过`authorization code`来获取token。
+
+请求: 
+
+```
+POST https://ppmessage.com/ppauth/token
+```
+
+请求body参数:
+
+参数               | 说明
+------------------|-------------------------
+`code`            | 你获取的授权码
+`client_id`       | 表示客户端的`api_key`(即`kefu api_key`和`console api_key`)
+`client_secret`   | 表示客户端的`api_secret`(即`kefu api_secret`和`console api_secret`)
+`redirect_uri`    | 重定向uri, 应该和之前的一致
+`grant_type`      | token 类型, 值为`authorization_code`
+
 
 返回结果：
 
