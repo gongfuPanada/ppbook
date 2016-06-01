@@ -794,7 +794,7 @@ PPCOM, PPKEFU, PPCONSOLE, THIRD_PARTY_KEFU, THIRD_PARTY_CONSOLE
 Name                   | Type      | Description
 -----------------------|-----------|------------
 **app_uuid**           | string    | 客服团队uuid
-**user_uuid**          | string    | 第几页消息
+**user_uuid**          | string    | 用户uuid
 
 
 返回结果（例子）
