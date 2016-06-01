@@ -2,6 +2,8 @@
 
 获取`token`分为两个步骤，第一步是获取授权码，第二步才是获取`token`。
 
+获取[demo](https://github.com/PPMESSAGE/ppmessage/tree/master/ppmessage/ppauth/demo)
+
 ---
 
 ### 获取授权码 
