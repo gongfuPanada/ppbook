@@ -2,7 +2,7 @@
 
 运行PPMessage前，需要对PPMessage做一些全局设置。
 
-### 生成配置文件
+#### 生成配置文件
 进入配置文件目录，生成config.py
 
 ```bash
@@ -10,7 +10,7 @@ cd ~/Documents/ppmessage/ppmessage/bootstrap
 cp config.template.py config.py
 ```
 
-### 配置文件说明
+#### 配置文件说明
 
 配置文件里有如下设置项目：
 

@@ -6,7 +6,7 @@
 
 ---
 
-### 获取授权码 
+#### 获取授权码 
 
 请求格式：
 
@@ -34,7 +34,7 @@ GET https://ppmessage.com/ppauth/auth?state=xxxx&client_id=xxxx&redirect_id=xxxx
 http://you-site.com?code=xxxxxx&state=xxxx
 ```
 
-### 获取 Token
+#### 获取 Token
 
 PPMessage服务器将用户导向你的`redirect_uri`后，你能从这个uri里获取到`authorization code`和`state`。
 
@@ -67,7 +67,7 @@ POST https://ppmessage.com/ppauth/token
 `token_type`     | 表示`token`类型，值为`Bearer`
 `expires_in`     | 表示`token`有效时间，值为`3600*24`秒，即24小时
 
-### 调用API
+#### 调用API
 
 成功获取到`token`之后，你可以使用`token`调用`PPMessage API`。
 

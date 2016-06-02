@@ -4,21 +4,21 @@
 
 ---
 
-### 下载PPMessage源代码
+#### 下载PPMessage源代码
 首先需要安装`git`，然后从`github`下载源代码，假设保存路径为`~/Documents/ppmessage`。
 
 ```
 git clone git@github.com:PPMESSAGE/ppmessage.git
 ```
 
-### 下载geolite2
+#### 下载geolite2
 源代码下载完成后，进入`~/Documents/ppmessage`目录，执行
 
 ```
 ppmessage/scripts/download_geolite2.sh
 ```
 
-### 安装依赖软件
+#### 安装依赖软件
 进入`~/Documents/ppmessage/ppmessage/scripts`目录。
 
 * 在`Mac`下, 执行
@@ -40,7 +40,7 @@ ppmessage/scripts/download_geolite2.sh
 * `Linux`下，配置脚本会通过源码编译安装`nginx-1.8.0`，`ffmpeg-3.0.2`，`mysql-connector-python-2.1.3`, 会覆盖你机器上已安装版本。
 
 
-### 安装npm, bower包
+#### 安装npm, bower包
 进入`~/Documents/ppmessage`目录
 
 ```
@@ -50,11 +50,11 @@ ppmessage/scripts/download_geolite2.sh
 
 如果执行`./dist.sh npm`出现资源被屏蔽、无法下载的错误，可以执行`./dist.sh cnpm`，这会从淘宝的`npm`镜像源下载`npm`包。
 
-### 配置PPMessage
+#### 配置PPMessage
 参考[配置PPMessage](./config-ppmessage.md)，生成配置文件。
 
 
-### 启动PPMessage
+#### 启动PPMessage
 首先，确保`mysql server`, `redis-server`, `nginx`已启动。
 
 * 在`Mac`下，输入以下命令启动上述服务
@@ -104,7 +104,7 @@ ppmessage/scripts/download_geolite2.sh
   ./dist.sh start
   ```
 
-### 访问PPMessage
+#### 访问PPMessage
 一旦`PPMessage`成功运行，我们就可以访问`PPMessage`各模块。
 
 地址格式为：`http_protocol://server_ip:server_port/service_name`。

@@ -4,7 +4,7 @@
 
 ---
 
-### 前言：Docker 的作用 ？
+#### 前言：Docker 的作用 ？
 > Docker allows you to package an application with all of its dependencies into a standardized unit for software development. Docker containers wrap up a piece of software in a complete filesystem that contains everything it needs to run: code, runtime, system tools, system libraries – anything you can install on a server. This guarantees that it will always run the same, regardless of the environment it is running in.
 
 简而言之，`Docker`可以将`PPMessage`运行时的所有依赖软件打包成为一个`Docker`镜像。借助于此镜像，`PPMessage`可以在任何支持`Docker`的机器上运行，并且效果完全一样。

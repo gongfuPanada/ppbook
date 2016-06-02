@@ -1,6 +1,6 @@
 # 配置开发环境
 
-### 准备工作
+#### 准备工作
     
     cd ~/Documents/ppmessage/ppmessage/ppconsole
     bower install
@@ -8,7 +8,7 @@
     npm install 
     gulp
     
-### 注意事项
+#### 注意事项
 开发时需要执行gulp watch 任务
 
     cd ~/Documents/ppmessage/ppmessage/ppconsole/gulp

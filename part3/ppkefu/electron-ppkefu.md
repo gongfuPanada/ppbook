@@ -2,7 +2,7 @@
 
 PPKefu是一个[electron](http://electron.atom.io/)项目, 支持`Mac, Mac App Store, windows 64bit/32bit, Linux`。
 
-### 关于
+#### 关于
 进入`~/Documents/ppmessage/ppmessage/ppkefu/ppkefu`目录。
     
 在此目录下，与`electron`相关的有以下三个文件:
@@ -11,7 +11,7 @@ PPKefu是一个[electron](http://electron.atom.io/)项目, 支持`Mac, Mac App S
     www/package.json,    指定应用名字，版本，主文件名字
     www/main.js,         运行electron应用的主文件
     
-### 开发
+#### 开发
 进入`~/Documents/ppmessage/ppmessage/ppkefu/ppkefu`目录。
 
 * 初始化`electron`

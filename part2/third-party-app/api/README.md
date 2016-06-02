@@ -289,34 +289,6 @@ group_uuid             | string    | 对话的组uuid
 ```
 
 
-#### 更新对话（弃用）
-```
-POST /PP_UPDATE_CONVERSATION
-```
-
-api_level:
-```
-PPCOM, PPKEFU, THIRD_PARTY_KEFU
-```
-
-参数
-
-Name                   | Type      | Description
------------------------|-----------|------------
-**conversation_uuid**  | string    | 对话uuid
-**assigned_uuid**      | string    | 对话被分配给这个客服
-
-返回结果（例子）
-
-```
-{
-    'uri': '/PP_UPDATE_CONVERSATION',
-    'error_code': 0,
-    'error_string': 'success.'
-}
-```
-
-
 #### 获取对话信息
 ```
 POST /PP_GET_CONVERSATION_INFO
@@ -677,32 +649,6 @@ Name                   | Type      | Description
     'error_code': 0,
     'uri': '/PP_GET_APP_SERVICE_USER_LIST',
     'error_string': 'success.'
-}
-```
-
-
-#### 发送消息(待完善)
-```
-POST /PP_SEND_MESSAGE
-```
-
-api_level:
-```
-PPCOM, PPKEFU, THIRD_PARTY_KEFU
-```
-
-参数
-
-Name                   | Type      | Description
------------------------|-----------|------------
-**app_uuid**           | string    | 客服团队uuid
-
-返回结果（例子）
-```
-{
-    'error_code': 0,
-    'error_string': 'success.',
-    'uri': '/PP_SEND_MESSAGE'
 }
 ```
 

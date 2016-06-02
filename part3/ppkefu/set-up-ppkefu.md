@@ -3,12 +3,12 @@
 
     cd ~/Documents/ppmessage/ppmessage/ppkefu/ppkefu
 
-### 安装依赖
+#### 安装依赖
 
     bower install 
     npm install 
     
-### 开发注意事宜
+#### 开发注意事宜
 www目录下有所有的js, scss, html源代码, 开发过程中gulp 负责监听www/js, www/scss目录下的文件变化，
 并实时生成合并、简化的js, css到www/build目录下。程序运行时使用的是www/build目录下的js, css, 以及
 www/tempaltes下的html。
@@ -29,7 +29,7 @@ www/tempaltes下的html。
     
    文件里的`overwrite`参数决定了是否每次运行gulp都更新此文件，默认每次都会更新，如果你不想的话，把`overwrite`的值改为`false`即可。
 
-### 运行网页版PPKefu
+#### 运行网页版PPKefu
 确认PPMessage已经运行，并且在ppkefu目录下执行过gulp，打开浏览器，在地址栏输入
 
     http://localhost:8080/ppkefu

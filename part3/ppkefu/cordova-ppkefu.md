@@ -2,13 +2,13 @@
 
 PPKefu是一个[Cordova](https://cordova.apache.org/)项目，支持android, ios平台
 
-### 准备工作
+#### 准备工作
 首先安装nodejs, 请参考[nodejs官网](https://nodejs.org/)的介绍安装。然后用npm 安装cordova, ionic
 
     sudo npm install -g cordova
     sudo npm install -g ionic
     
-### 初始化
+#### 初始化
 进入ppkefu目录
 
     cd ~/Documents/ppmessage/ppmessage/ppkefu/ppkefu
