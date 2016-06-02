@@ -10,6 +10,7 @@
     * [消息分发策略](part2/ppcom/message-dispatch.md)
     * [集成Web SDK](part2/ppcom/web-sdk.md)
     * [集成iOS SDK](part2/ppcom/ios-sdk.md)
+    * [集成Android SDK](part2/ppcom/android-sdk.md)
   * [PPConsole](part2/ppconsole/README.md)
     * [快速向导](part2/ppconsole/quick-guide.md)
     * [数据总览](part2/ppconsole/data-overview.md)
