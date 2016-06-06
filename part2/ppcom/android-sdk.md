@@ -6,7 +6,8 @@
 
 [ ![Download](https://api.bintray.com/packages/ppmessage/maven/ppcomsdk/images/download.svg) ](https://bintray.com/ppmessage/maven/ppcomsdk/_latestVersion)
 
-======
+
+===
 
 你可通过 `Maven` 或者 `Gradle` 下载 `PPCom Android SDK`.
 
@@ -45,7 +46,8 @@ compile 'com.ppmessage:ppcomsdk:0.0.2'
 
 
 #### 使用说明
-======
+
+===
 
 1. 初始化
 
