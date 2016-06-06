@@ -1,6 +1,6 @@
 # PPMessage 如何工作
 
-PPMessage客服平台包括PPConsole，PPKefu，PPCom，PPMessage服务器四部分。前三者属于客服端范畴，都连接着PPMessage服务器。
+PPMessage客服平台包括PPConsole，PPKefu，PPCom，PPMessage服务器四部分。前三者属于客户端范畴，都连接着PPMessage服务器。
 
 --------
 
