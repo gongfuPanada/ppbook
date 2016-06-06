@@ -29,12 +29,12 @@ PPMessage客服平台包括PPConsole，PPKefu，PPCom，PPMessage服务器四部
 
 3. 客服通过 PPKefu 发送消息，PPMessage 服务器接收消息并进行处理。
 
-4. 服务器给网站用户推送消息，用户通过 PPCOM 接收消息。
+4. 服务器给网站用户推送消息，用户通过 PPCom 接收消息。
 
-5. 客服管理员登录PPConsole后， 从服务器加载与其账号相关的信息。
+5. 客服管理员登录 PPConsole 后， 从服务器加载与其账号相关的信息。
 
 6. 客服管理员通过 PPConsole 进行管理团队，修改配置等操作后，保存相应信息到服务器。
 
-7. 客服管理员通过PPConsole，获取在第三方网站部署PPCom所需的代码，设置PPCom显示样式、默认行为。
+7. 客服管理员通过 PPConsole，获取在网站部署 PPCom 所需的代码，设置 PPCom 显示样式、默认行为。
 
-8. 客服管理员通过PPConsole，打开并自动登录PPKefu。
+8. 客服管理员通过 PPConsole，打开并自动登录 PPKefu。

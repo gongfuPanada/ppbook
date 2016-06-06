@@ -1,16 +1,16 @@
 # PPCom Web SDK
 
-Web SDK帮助开发者在Web端集成PPCom。
+Web SDK 帮助开发者在 Web 端集成 PPCom。
 
 ----
 
 #### 集成 Web SDK
-集成Web sdk之前你应该在PPConsole创建一个客服团队，然后在**团队设置-基本信息**栏获取团队uuid(下文的app_uuid），之后可以选择**嵌入代码**或者**加载文件**两种方式进行Web集成。
+集成 Web SDK 之前你应该在 PPConsole 创建一个客服团队，然后在**团队设置-基本信息**栏获取团队 uuid (下文的app_uuid），之后可以选择**嵌入代码**或者**加载文件**两种方式进行 Web 集成。
 
 #### 嵌入代码
-PPConsole的**团队设置-应用集成**栏目提供了最简版本的嵌入代码。要在某一个网页中集成PPCom，只需要复制嵌入代码并将其插入到网页html文件的**body**标签之中即可。
+PPConsole 的**团队设置-应用集成**栏目提供了最简版本的嵌入代码。要在某一个网页中集成 PPCom，只需要复制嵌入代码并将其插入到网页 html 文件的 **body** 标签之中即可。
 
-最简版的嵌入代码示例如下，你可以参考下文的 **Web SDK接口** 修改window.ppSettings对象。如果你想要调用其他的SDK接口，请使用下文的**加载文件**方式集成PPCom。
+最简版的嵌入代码示例如下，你可以参考下文的 **Web SDK 接口** 修改 window.ppSettings 对象。如果你想要调用其他的接口，请使用下文的**加载文件**方式集成。
 
 ```html
 <script>
@@ -23,9 +23,9 @@ window.ppSettings = {
 ```
 
 #### 加载文件
-使用直接加载Javascript文件的方法集成PPCom，能确保你调用任何接口之前，PPCom SDK已经加载完毕。
+使用直接加载 Javascript 文件的方法集成 PPCom，能确保你调用任何接口之前，PPCom SDK 已经加载完毕。
 
-方法很简单，只需要将下列代码插入到html文件的**head**标签里，然后就可以在你的js源码里调用PPCom SDK接口。具体接口请参考下文的 **Web SDK接口**。
+方法很简单，只需要将下列代码插入到html文件的**head**标签里，然后就可以在你的 Javascript 程序代码中调用 PPCom SDK接口。具体接口请参考下文的 **Web SDK 接口**。
 
 ```html
 <script src="https://ppmessage.com/ppcom/assets/pp-library.min.js" type="text/javascript"></script>
@@ -57,7 +57,7 @@ window.ppSettings = {
 
 - `PPCom.boot`
   
-  以匿名或具名用户的身份启动PPCom。一旦启动PPCom，再次调用`PP.boot`不会重启PPCom。如果确实需要重启PPCom，你需要先调用`PP.shutdown`，然后调用`PP.boot`。
+  以匿名或具名用户的身份启动 PPCom。一旦启动 PPCom，再次调用`PP.boot`不会重启 PPCom，即不会执行任何操作。如果确实需要重启 PPCom，你需要先调用`PP.shutdown`，然后调用`PP.boot`。
   
   参数可选，不填写参数的话，则默认使用`window.ppSettings`来启动`PPCom`。
   
@@ -74,7 +74,7 @@ window.ppSettings = {
 
 - `PPCom.update`
   
-  当需要更换PPCom用户，更新PPCom用户的信息（邮箱，头像，显示名称）时，调用PP.update方法。
+  当需要更换 PPCom 用户，更新 PPCom 用户的信息（邮箱，头像，显示名称）时，调用 PP.update 方法。
   
   参数可选，不填写参数的话，则默认使用`window.ppSettings`来更新`PPCom`。
   
@@ -131,19 +131,19 @@ window.ppSettings = {
   ```
 
 
-#### 使用Web SDK
+#### 使用 Web SDK
 
-当PPCom启动时，会根据开发者传入的参数去PPMessage服务器创建或获取一个用户（该用户属于PPMessage系统，与开发者网站用户不是一个概念）。如果PPCom启动时带着`user_email`参数，则称用户为具名用户，否则称为匿名用户。具名用户通过`user_email`将开发者网站用户和PPMessage系统用户关联起来。 
+当 PPCom 启动时，会根据开发者传入的参数去 PPMessage 服务器创建或获取一个用户（该用户属于PPMessage系统，与开发者网站用户不是一个概念）。如果 PPCom 启动时带着`user_email`参数，则该用户为具名用户，否则为匿名用户。具名用户通过`user_email`将开发者网站用户和 PPMessage 用户关联起来。 
 
-典型情景：一个有自己的用户系统（支持用户登录）的网站，集成了PPCom Web SDK。网站用户在网站上可能做出登录，修改头像，修改昵称，退出登录等操作。针对网站用户的不同行为，网站开发者需要调用不同的SDK接口来正确地显示PPCom。
+典型情景：一个有自己的用户系统（支持用户登录）的网站，集成了 PPCom Web SDK。网站用户在网站上可能做出登录，修改头像，修改昵称，退出登录等操作。针对网站用户的不同行为，网站开发者需要调用不同的SDK接口来正确地显示 PPCom。
 
 考虑以下用户行为：
 
 * **网站用户打开网站**
 
-  用户在浏览网站，但是没有登录，此时应该将该用户视为匿名用户，并以匿名用户的身份启动PPCom。开发者可以给匿名用户指定默认名称和默认头像，如果没有指定的话，PPMessage系统会给匿名用户创建名称（根据用户IP）和头像（随机头像）。PPCom会在浏览器缓存中存储匿名用户信息，除非用户清空浏览器缓存，否则下次打开网站还是会用之前创建的匿名用户启动PPCom。
+  用户在浏览网站，但是没有登录，此时应该将该用户视为匿名用户，并以匿名用户的身份启动PPCom。开发者可以给匿名用户指定默认名称和默认头像，如果没有指定的话，PPMessage 系统会给匿名用户创建名称（根据用户IP）和头像（随机头像）。PPCom会在浏览器缓存中存储匿名用户信息，除非用户清空浏览器缓存，否则下次打开网站还是会用之前创建的匿名用户启动 PPCom。
   
-  如果你想让PPCom在网站一打开就自动出现，只需要创建`window.ppSettings`对象即可，SDK加载完成后会自动以此对象作为参数启动PPCom。
+  如果你想让PPCom在网站一打开就自动出现，只需要创建`window.ppSettings`对象即可，SDK加载完成后会自动以此对象作为参数启动 PPCom。
 
   ```javascript
   window.ppSettings = {
@@ -154,7 +154,7 @@ window.ppSettings = {
   };
   ```
   
-  如果你想要自己控制PPCom何时出现，则不要创建`window.ppSettings`对象，而是直接调用`PP.boot`方法。
+  如果你想要自己控制 PPCom 何时出现，则不要创建`window.ppSettings`对象，而是直接调用`PP.boot`方法。
   
   ```javascript
   PP.boot({
@@ -181,7 +181,7 @@ window.ppSettings = {
 
 * **网站用户修改自身信息**
 
-  网站用户修改了自身信息（显示名称、头像）后，开发者需要告诉PPCom更新用户信息。`user_email`标识需要更新的用户。
+  网站用户修改了自身信息（显示名称、头像）后，开发者需要告诉 PPCom 更新用户信息。`user_email`标识需要更新的用户。
   
   ```javascript
   PP.update({
@@ -195,7 +195,7 @@ window.ppSettings = {
  
 * **网站用户退出登录**
 
-  网站用户退出登录后，开发者需要以匿名用户身份更新PPCom。之前创建的匿名用户在本地已经缓存，所以此次不会创建新的匿名用户。
+  网站用户退出登录后，开发者需要以匿名用户身份更新 PPCom。之前创建的匿名用户在本地已经缓存，所以此次不会创建新的匿名用户。
   
   ```javascript
     PP.update({
