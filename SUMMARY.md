@@ -35,8 +35,6 @@
       * [配置开发环境](part3/ppconsole/set-up-ppconsole.md)
     * [PPKefu](part3/ppkefu/README.md)
       * [配置开发环境](part3/ppkefu/set-up-ppkefu.md)
-      * [Cordova-PPKefu](part3/ppkefu/cordova-ppkefu.md)
-      * [Electron-PPKefu](part3/ppkefu/electron-ppkefu.md)
     * [PPCom](part3/ppcom/README.md)
       * [配置开发环境](part3/ppcom/set-up-ppcom.md)
 
