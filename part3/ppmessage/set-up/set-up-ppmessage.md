@@ -30,7 +30,7 @@ ppmessage/scripts/download_geolite2.sh
 * 在`Linux(Debian/Ubuntu)`下, 执行
 
   ```
-  bash set-up-ppmessage-on-linux.sh
+  bash set-up-ppmessage-on-debian-or-ubuntu.sh
   ```
 
 注意：当执行脚本安装依赖时，操作系统原有的软件可能会被更新、覆盖。你需要注意以下事项，并在必要的时候DIY脚本。
